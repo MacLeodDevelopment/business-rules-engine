@@ -13,9 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Domain", "BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj", "{3F519307-4C09-481B-8EF8-A43E70018413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Domain", "BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj", "{3F519307-4C09-481B-8EF8-A43E70018413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Infrastructure", "BusinessRulesEngine.Infrastructure\BusinessRulesEngine.Infrastructure.csproj", "{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Infrastructure", "BusinessRulesEngine.Infrastructure\BusinessRulesEngine.Infrastructure.csproj", "{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Domain.UnitTests", "BusinessRulesEngine.Domain.UnitTests\BusinessRulesEngine.Domain.UnitTests.csproj", "{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Services", "BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj", "{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Services.UnitTests", "BusinessRulesEngine.Services.UnitTests\BusinessRulesEngine.Services.UnitTests.csproj", "{0602F8D4-E844-470A-8605-6E9D1B552E7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0602F8D4-E844-470A-8605-6E9D1B552E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0602F8D4-E844-470A-8605-6E9D1B552E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0602F8D4-E844-470A-8605-6E9D1B552E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0602F8D4-E844-470A-8605-6E9D1B552E7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
