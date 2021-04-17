@@ -7,4 +7,12 @@ namespace BusinessRulesEngine.Domain.Interfaces
     {
         IEnumerable<IRule> GetMatchingRules(Order order);
     }
+
+    public class RuleMatchService : IRuleMatchService
+    {
+        public IEnumerable<IRule> GetMatchingRules(Order order)
+        {
+            throw new System.NotImplementedException(); //TODO AMACLEOD
+        }
+    }
 }

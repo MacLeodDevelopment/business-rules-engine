@@ -4,7 +4,7 @@ using BusinessRulesEngine.Domain.Models;
 
 namespace BusinessRulesEngine.Services
 {
-    public class OrderProcessor
+    public class OrderProcessor : IOrderProcessor
     {
         private readonly IRuleMatchService _ruleMatchService;
         private readonly IRuleEngine _ruleEngine;
