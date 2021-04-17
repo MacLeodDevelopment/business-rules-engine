@@ -33,7 +33,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
             var events = UI.Program.GetPublishedEvents().ToList();
 
             events.Count.Should().Be(1);
-            events[0].Message.Should().Be("Packing Slip Created");
+            events[0].Message.Should().Be("Order1: Packing slip CREATED for Shipping.");
         }
     }
 }
