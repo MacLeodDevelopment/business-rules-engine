@@ -1,5 +1,5 @@
-﻿using BusinessRulesEngine.Domain.Interfaces;
-using BusinessRulesEngine.Domain.Models;
+﻿using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
 using BusinessRulesEngine.Domain.Rules;
 using Moq;
 using NUnit.Framework;
@@ -13,71 +13,58 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGeneratePackingSlipFo
     /// is anemic (sic) domain models which some argue is an anti-pattern.
     /// </remarks>
     [TestFixture]
-    public class WhenApplyIsInvoked
+    public class WhenApplyIsInvoked : CommonApplyTestsSetupBase
     {
         private GeneratePackingSlipForPhysicalProduct _generatePackingSlipForPhysicalProduct;
-        private Mock<Order> _mockOrder;
-        private PackingSlip _expectedPackingSlip;
-        private Product _expectedProduct;
-        private Mock<IServiceBus> _mockServiceBus;
-
+        
         [SetUp]
-        public void Setup()
+        public new void Setup()
         {
-            _expectedProduct = new Product(new ProductConfig
-            {
-                Name = "Expected Product",
-                Type = "Expected Type",
-                SubType = "Expected Sub Type"
-            });
+            ExpectedPackingSlip = new PackingSlip("Shipping");
+            ExpectedPackingSlip.AddProduct($"{ExpectedProduct.Name} ({ExpectedProduct.ProductSubType})");
 
-            _expectedPackingSlip = new PackingSlip("Shipping");
-            _expectedPackingSlip.AddProduct($"{_expectedProduct.Name} ({_expectedProduct.ProductSubType})");
-
-            _mockOrder = new Mock<Order>();
-            _mockOrder.Setup(m => m.SetPackingSlip(_expectedPackingSlip));
-            _mockOrder.SetupGet(m => m.Product).Returns(_expectedProduct);
-
-            _mockServiceBus = new Mock<IServiceBus>();
-            _mockServiceBus.Setup(m => m.PublishEvent(It.IsAny<IBusinessEvent>()));
-
-            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct(_mockServiceBus.Object);
+            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct(MockServiceBus.Object);
         }
 
         [Test]
         public void ThenANewPackingSlipIsGeneratedAndAddedToTheOrder()
         {
-            _generatePackingSlipForPhysicalProduct.Apply(_mockOrder.Object);
+            _generatePackingSlipForPhysicalProduct.Apply(MockOrder.Object);
 
-            _mockOrder.Verify(m => m.SetPackingSlip(It.Is<PackingSlip>(ps => PackingSlipDepartmentIsExpected(ps))), Times.Once);
+            MockOrder.Verify(m => m.SetPackingSlip(It.Is<PackingSlip>(ps => PackingSlipDepartmentIsExpected(ps))), Times.Once);
         }
 
         [Test]
         public void ThenTheProductIsAddedToThePackingSlip()
         {
-            _generatePackingSlipForPhysicalProduct.Apply(_mockOrder.Object);
+            _generatePackingSlipForPhysicalProduct.Apply(MockOrder.Object);
 
-            _mockOrder.Verify(m => m.SetPackingSlip(It.Is<PackingSlip>(ps => PackingSlipProductListIsExpected(ps))), Times.Once);
+            MockOrder.Verify(m => m.SetPackingSlip(It.Is<PackingSlip>(ps => PackingSlipProductListIsExpected(ps))), Times.Once);
         }
 
         [Test]
         public void ThenAPackingSlipCreatedEventIsPublishedToTheServiceBus()
         {
-            _generatePackingSlipForPhysicalProduct.Apply(_mockOrder.Object);
+            _generatePackingSlipForPhysicalProduct.Apply(MockOrder.Object);
 
-            _mockServiceBus.Verify(m => m.PublishEvent(It.IsAny<IBusinessEvent>()), Times.Once()); //TODO AMACLEOD REVISIT
+            MockServiceBus.Verify(m => m.PublishEvent(It.Is<PackingSlipCreated>(psc => PackingSlipIsMatch(psc))), Times.Once());
         }
 
-        private bool PackingSlipDepartmentIsExpected(PackingSlip actualPackingSlip)
+        private bool PackingSlipIsMatch(PackingSlipCreated createdEvent)
         {
-            Assert.AreEqual(_expectedPackingSlip.Department, actualPackingSlip.Department);
-            return true; //This will fail if they are not equal.
-        }
-        
-        private bool PackingSlipProductListIsExpected(PackingSlip actualPackingSlip)
-        {
-            Assert.AreEqual(_expectedPackingSlip.Products, actualPackingSlip.Products);
-            return true; //This will fail if they are not equal.
+            var packingSlip = createdEvent.Data as PackingSlip;
+            
+            if (packingSlip == null)
+            {
+                Assert.Fail("Packing Slip Created Event did not have a packing slip.");
+            }
+
+            if (packingSlip.Department != "Shipping")
+            {
+                Assert.Fail("Packing slip department should be Shipping");
+            }
+
+            return true;
         }
     }
 }

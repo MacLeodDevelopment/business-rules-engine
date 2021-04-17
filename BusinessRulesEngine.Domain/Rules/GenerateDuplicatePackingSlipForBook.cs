@@ -7,7 +7,7 @@ namespace BusinessRulesEngine.Domain.Rules
     {
         public bool IsMatch(Order order)
         {
-            return order?.Product?.ProductSubType == "Book";
+            return order?.Product?.ProductSubType.ToLowerInvariant() == "book";
         }
 
         public void Apply(Order order)

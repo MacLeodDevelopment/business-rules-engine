@@ -15,7 +15,7 @@ namespace BusinessRulesEngine.Domain.Rules
 
         public bool IsMatch(Order order)
         {
-            return order?.Product?.ProductType == "Physical";
+            return order?.Product?.ProductType.ToLowerInvariant() == "physical";
         }
 
         public void Apply(Order order)
