@@ -2,6 +2,7 @@
 using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Models.Events;
+using BusinessRulesEngine.Infrastructure;
 using BusinessRulesEngine.UI.InputModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,11 +11,13 @@ namespace BusinessRulesEngine.UI
     public class Program
     {
         private static readonly IOrderProcessor OrderProcessor;
+        private static readonly IServiceBus ServiceBusEmulator;
 
         static  Program()
         {
             var serviceProvider = IoC.DependencyResolver.ServiceProvider();
             OrderProcessor = serviceProvider.GetService<IOrderProcessor>();
+            ServiceBusEmulator = serviceProvider.GetService<IServiceBus>();
         }
 
         public static void Main()
@@ -38,7 +41,7 @@ namespace BusinessRulesEngine.UI
 
         public static IEnumerable<IBusinessEvent> GetPublishedEvents()
         {
-            return new List<IBusinessEvent> {new PackingSlipCreated()};
+            return ServiceBusEmulator.Events();
         }
 
         private static Order GetOrder(InputOrder inputOrder)

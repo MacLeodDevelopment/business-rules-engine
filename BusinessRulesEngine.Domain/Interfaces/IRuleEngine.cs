@@ -12,7 +12,7 @@ namespace BusinessRulesEngine.Domain.Interfaces
     {
         public void ApplyRules(IEnumerable<IRule> rules, Order validOrder)
         {
-            throw new System.NotImplementedException(); //TODO AMACLEOD
+            //throw new System.NotImplementedException(); //TODO AMACLEOD
         }
     }
 }

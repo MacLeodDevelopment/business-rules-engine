@@ -12,7 +12,8 @@ namespace BusinessRulesEngine.Domain.Interfaces
     {
         public IEnumerable<IRule> GetMatchingRules(Order order)
         {
-            throw new System.NotImplementedException(); //TODO AMACLEOD
+            //throw new System.NotImplementedException(); //TODO AMACLEOD
+            return new List<IRule>();
         }
     }
 }

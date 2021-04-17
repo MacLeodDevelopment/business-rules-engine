@@ -1,4 +1,5 @@
 ﻿using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Infrastructure;
 using BusinessRulesEngine.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +14,8 @@ namespace BusinessRulesEngine.IoC
             serviceCollection.AddSingleton<IOrderProcessor, OrderProcessor>();
             serviceCollection.AddSingleton<IRuleMatchService, RuleMatchService>();
             serviceCollection.AddSingleton<IRuleEngine, RuleEngine>();
+
+            serviceCollection.AddSingleton<IServiceBus, ServiceBusEmulator>();
 
             return serviceCollection.BuildServiceProvider();
         }

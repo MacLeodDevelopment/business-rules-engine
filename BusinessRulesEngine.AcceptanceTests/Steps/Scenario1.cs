@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BusinessRulesEngine.UI.InputModels;
+using FluentAssertions;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -34,7 +36,10 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [Then(@"a packing slip is generated for shipping the order")]
         public void ThenAPackingSlipIsGeneratedForShippingTheOrder()
         {
-            var events = UI.Program.GetPublishedEvents();
+            var events = UI.Program.GetPublishedEvents().ToList();
+
+            events.Count.Should().Be(1);
+            events[0].Message.Should().Be("Packing Slip Created");
         }
     }
 }
