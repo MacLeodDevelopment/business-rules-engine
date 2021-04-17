@@ -13,3 +13,9 @@ Initial plan is as follows:
 ## Assumptions
 
 TODO
+
+## Notes
+
+Commits up to commit 6 are mainly setting up the projects and installing  NuGet packages. 
+
+Commits 7 & 8 show the first unit test and implementation of code to make it pass. 
