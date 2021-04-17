@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj" />
     <ProjectReference Include="..\BusinessRulesEngine.Infrastructure\BusinessRulesEngine.Infrastructure.csproj" />
+    <ProjectReference Include="..\BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj" />
   </ItemGroup>
 
 </Project>
