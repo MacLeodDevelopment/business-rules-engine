@@ -17,7 +17,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [When(@"the order is processed")]
         public void WhenTheOrderIsProcessed()
         {
-            var orders = _scenarioContext.Get<IEnumerable<InputOrder>>("Orders");
+            var orders = _scenarioContext.Get<IEnumerable<InputOrder>>(StepConstants.OrdersKey);
             UI.Program.ProcessOrders(orders);
         }
     }

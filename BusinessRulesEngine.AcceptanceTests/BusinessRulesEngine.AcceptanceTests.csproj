@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Hooks\**" />
-    <EmbeddedResource Remove="Hooks\**" />
-    <None Remove="Hooks\**" />
-    <SpecFlowFeatureFiles Remove="Hooks\**" />
-    <SpecFlowObsoleteCodeBehindFiles Remove="Hooks\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NUnit" Version="3.12.0" />
@@ -27,6 +19,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessRulesEngine.SharedResources\BusinessRulesEngine.SharedResources.csproj" />
     <ProjectReference Include="..\BusinessRulesEngine.UI\BusinessRulesEngine.UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Hooks\" />
   </ItemGroup>
 
 </Project>

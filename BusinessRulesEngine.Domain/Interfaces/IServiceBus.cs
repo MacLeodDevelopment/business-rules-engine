@@ -6,5 +6,6 @@ namespace BusinessRulesEngine.Domain.Interfaces
     {
         IEnumerable<IBusinessEvent> Events();
         void PublishEvent(IBusinessEvent businessEvent);
+        void ClearEvents();
     }
 }

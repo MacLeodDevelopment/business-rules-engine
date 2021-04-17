@@ -24,5 +24,10 @@ namespace BusinessRulesEngine.Infrastructure
             _logger.Log(businessEvent.Message);
             _events.Add(businessEvent);
         }
+
+        public void ClearEvents()
+        {
+            _events.Clear();
+        }
     }
 }

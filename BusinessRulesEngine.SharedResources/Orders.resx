@@ -121,4 +121,7 @@
   <data name="Order1_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>jsonorders\order1.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Order2_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>jsonorders\order2.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

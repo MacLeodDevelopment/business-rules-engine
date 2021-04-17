@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BusinessRulesEngine.Domain.Interfaces;
-using BusinessRulesEngine.Domain.Models;
-using BusinessRulesEngine.Domain.Models.Events;
-using BusinessRulesEngine.Infrastructure;
 using BusinessRulesEngine.UI.InputModels;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -34,6 +31,11 @@ namespace BusinessRulesEngine.UI
             Console.ReadLine();
         }
 
+        /*
+         * The public methods below allow the functionality of the application
+         * to be acceptance tested without requiring UI interactions.
+         */
+
         public static void ProcessOrders(IEnumerable<InputOrder> orders)
         {
             foreach (var inputOrder in orders)
@@ -46,6 +48,11 @@ namespace BusinessRulesEngine.UI
         public static IEnumerable<IBusinessEvent> GetPublishedEvents()
         {
             return ServiceBusEmulator.Events();
+        }
+
+        public static void ClearEvents()
+        {
+            ServiceBusEmulator.ClearEvents();
         }
     }
 }
