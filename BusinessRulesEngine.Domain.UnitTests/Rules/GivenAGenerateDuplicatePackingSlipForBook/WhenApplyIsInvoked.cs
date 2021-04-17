@@ -1,5 +1,6 @@
 ﻿using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
 using BusinessRulesEngine.Domain.Rules;
 using BusinessRulesEngine.Domain.UnitTests.Events;
 using Moq;
@@ -15,7 +16,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGenerateDuplicatePack
         [SetUp]
         public new void Setup()
         {
-            _generateDuplicatePackingSlipForBook = new GenerateDuplicatePackingSlipForBook();
+            _generateDuplicatePackingSlipForBook = new GenerateDuplicatePackingSlipForBook(MockServiceBus.Object);
         }
 
         [Test]

@@ -1,6 +1,8 @@
-﻿using BusinessRulesEngine.Domain.Models;
+﻿using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Rules;
 using FluentAssertions;
+using Moq;
 using NUnit.Framework;
 
 namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGenerateDuplicatePackingSlipForBook
@@ -26,7 +28,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGenerateDuplicatePack
             _orderWithNonBook = new Order("Other Order");
             _orderWithNonBook.SetProduct(new Product(new ProductConfig{SubType = "Other Product"}));
 
-            _generateDuplicatePackingSlipForBook = new GenerateDuplicatePackingSlipForBook();
+            _generateDuplicatePackingSlipForBook = new GenerateDuplicatePackingSlipForBook(new Mock<IServiceBus>().Object);
         }
 
         [Test]

@@ -1,4 +1,5 @@
 ﻿using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
 using FluentAssertions;
 using NUnit.Framework;
 

@@ -1,7 +1,6 @@
 ﻿using BusinessRulesEngine.Domain.Interfaces;
-using BusinessRulesEngine.Domain.Models;
 
-namespace BusinessRulesEngine.Domain.UnitTests.Events
+namespace BusinessRulesEngine.Domain.Models.Events
 {
     public class PackingSlipDuplicated : IBusinessEvent
     {
