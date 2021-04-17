@@ -7,7 +7,7 @@ namespace BusinessRulesEngine.Domain.Rules
     {
         public bool IsMatch(Order order)
         {
-            throw new System.NotImplementedException();
+            return order?.Product?.ProductSubType == "Book";
         }
 
         public void Apply(Order order)
