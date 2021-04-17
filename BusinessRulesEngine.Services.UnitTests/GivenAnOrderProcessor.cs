@@ -16,11 +16,13 @@ namespace BusinessRulesEngine.Services.UnitTests
         }
 
         [Test]
-        public void WhenProcessOrdersIsInvokedWithNullOrders_ThenAnArgumentNullExceptionIsThrown()
+        public void WhenProcessOrderIsInvokedWithNullOrder_ThenAnArgumentNullExceptionIsThrown()
         {
-            Action act = () => _orderProcessor.ProcessOrders(null);
+            Action act = () => _orderProcessor.ProcessOrder(null);
 
-            act.Should().Throw<ArgumentException>();
+            act.Should()
+                .Throw<ArgumentException>()
+                .WithMessage("Value cannot be null. (Parameter 'order')");
         }
 
         //This needs to take in orders, get any rules that apply and then apply them.
@@ -28,9 +30,16 @@ namespace BusinessRulesEngine.Services.UnitTests
 
     public class OrderProcessor
     {
-        public void ProcessOrders(object o)
+        public void ProcessOrder(Order order)
         {
-            throw new NotImplementedException();
+            if (order == null)
+            {
+                throw new ArgumentNullException(nameof(order));
+            }
         }
+    }
+
+    public class Order
+    {
     }
 }
