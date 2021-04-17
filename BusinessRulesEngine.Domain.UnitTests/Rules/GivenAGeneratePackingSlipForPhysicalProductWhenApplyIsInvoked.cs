@@ -1,4 +1,5 @@
-﻿using BusinessRulesEngine.Domain.Models;
+﻿using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Rules;
 using Moq;
 using NUnit.Framework;
@@ -18,6 +19,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         private Mock<Order> _mockOrder;
         private PackingSlip _expectedPackingSlip;
         private Product _expectedProduct;
+        private Mock<IServiceBus> _mockServiceBus;
 
         [SetUp]
         public void Setup()
@@ -36,7 +38,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
             _mockOrder.Setup(m => m.SetPackingSlip(_expectedPackingSlip));
             _mockOrder.SetupGet(m => m.Product).Returns(_expectedProduct);
 
-            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
+            _mockServiceBus = new Mock<IServiceBus>();
+            _mockServiceBus.Setup(m => m.PublishEvent(It.IsAny<IBusinessEvent>()));
+
+            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct(_mockServiceBus.Object);
         }
 
         [Test]
@@ -55,16 +60,24 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
             _mockOrder.Verify(m => m.SetPackingSlip(It.Is<PackingSlip>(ps => PackingSlipProductListIsExpected(ps))), Times.Once);
         }
 
+        [Test]
+        public void ThenAPackingSlipCreatedEventIsPublishedToTheServiceBus()
+        {
+            _generatePackingSlipForPhysicalProduct.Apply(_mockOrder.Object);
+
+            _mockServiceBus.Verify(m => m.PublishEvent(It.IsAny<IBusinessEvent>()), Times.Once()); //TODO AMACLEOD REVISIT
+        }
+
         private bool PackingSlipDepartmentIsExpected(PackingSlip actualPackingSlip)
         {
             Assert.AreEqual(_expectedPackingSlip.Department, actualPackingSlip.Department);
-            return true; //This wil fail if they are not equal.
+            return true; //This will fail if they are not equal.
         }
         
         private bool PackingSlipProductListIsExpected(PackingSlip actualPackingSlip)
         {
             Assert.AreEqual(_expectedPackingSlip.Products, actualPackingSlip.Products);
-            return true; //This wil fail if they are not equal.
+            return true; //This will fail if they are not equal.
         }
     }
 }

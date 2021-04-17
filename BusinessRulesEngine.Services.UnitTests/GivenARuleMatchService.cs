@@ -17,7 +17,7 @@ namespace BusinessRulesEngine.Services.UnitTests
         private readonly Mock<IRule> _mockRule1 = new Mock<IRule>();
         private readonly Mock<IRule> _mockRule2 = new Mock<IRule>();
         private readonly Mock<IRule> _mockRule3 = new Mock<IRule>();
-        private readonly Order _expectedOrder = new Order();
+        private readonly Order _expectedOrder = new Order("Expected Order");
 
         [SetUp]
         public void Setup()

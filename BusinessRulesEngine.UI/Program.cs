@@ -47,7 +47,7 @@ namespace BusinessRulesEngine.UI
 
         private static Order GetOrder(InputOrder inputOrder)
         {
-            return new Order();
+            return new Order("An Order");
         }
     }
 }

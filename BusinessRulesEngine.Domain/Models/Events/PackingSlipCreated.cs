@@ -5,10 +5,10 @@ namespace BusinessRulesEngine.Domain.Models.Events
     public class PackingSlipCreated : IBusinessEvent
     {
         public string Message { get; }
-
-        public PackingSlipCreated()
+        
+        public PackingSlipCreated(PackingSlip packingSlip, string orderId)
         {
-            Message = "Packing Slip Created";
+            Message = $"{orderId}: Packing slip CREATED for {packingSlip.Department}.";
         }
     }
 }

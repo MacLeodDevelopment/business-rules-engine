@@ -1,6 +1,8 @@
-﻿using BusinessRulesEngine.Domain.Models;
+﻿using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Rules;
 using FluentAssertions;
+using Moq;
 using NUnit.Framework;
 
 namespace BusinessRulesEngine.Domain.UnitTests.Rules
@@ -15,13 +17,13 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         [SetUp]
         public void Setup()
         {
-            _orderWithPhysicalProduct = new Order();
+            _orderWithPhysicalProduct = new Order("Order A");
             _orderWithPhysicalProduct.SetProduct(new Product(new ProductConfig {Type = "Physical"}));
 
-            _orderWithNonPhysicalProduct = new Order();
+            _orderWithNonPhysicalProduct = new Order("Order B");
             _orderWithNonPhysicalProduct.SetProduct(new Product(new ProductConfig {Type = "Anything Else"}));
 
-            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
+            _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct(new Mock<IServiceBus>().Object);
         }
 
         [Test]
@@ -49,7 +51,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         [Test]
         public void WithAnInvalidProduct_ThenFalseIsReturned()
         {
-            var actual = _generatePackingSlipForPhysicalProduct.IsMatch(new Order());
+            var actual = _generatePackingSlipForPhysicalProduct.IsMatch(new Order("An Order"));
             actual.Should().BeFalse();
         }
     }
