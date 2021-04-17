@@ -17,14 +17,24 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         private GeneratePackingSlipForPhysicalProduct _generatePackingSlipForPhysicalProduct;
         private Mock<Order> _mockOrder;
         private PackingSlip _expectedPackingSlip;
+        private Product _expectedProduct;
 
         [SetUp]
         public void Setup()
         {
+            _expectedProduct = new Product(new ProductConfig
+            {
+                Name = "Expected Product",
+                Type = "Expected Type",
+                SubType = "Expected Sub Type"
+            });
+
             _expectedPackingSlip = new PackingSlip("Shipping");
+            _expectedPackingSlip.AddProduct($"{_expectedProduct.Name} ({_expectedProduct.ProductSubType})");
 
             _mockOrder = new Mock<Order>();
             _mockOrder.Setup(m => m.SetPackingSlip(_expectedPackingSlip));
+            _mockOrder.SetupGet(m => m.Product).Returns(_expectedProduct);
 
             _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
         }

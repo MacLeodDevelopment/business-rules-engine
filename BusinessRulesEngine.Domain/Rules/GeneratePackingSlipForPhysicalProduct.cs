@@ -13,6 +13,8 @@ namespace BusinessRulesEngine.Domain.Rules
         public void Apply(Order order)
         {
             var packingSlip = new PackingSlip("Shipping");
+            packingSlip.AddProduct($"{order.Product.Name} ({order.Product.ProductSubType})");
+            
             order.SetPackingSlip(packingSlip);
         }
     }

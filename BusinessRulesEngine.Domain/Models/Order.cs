@@ -2,8 +2,8 @@
 {
     public class Order
     {
-        public Product Product { get; private set; }
-        public PackingSlip PackingSlip { get; private set; }
+        public virtual Product Product { get; private set; }
+        public virtual PackingSlip PackingSlip { get; private set; }
 
         public virtual void SetPackingSlip(PackingSlip packingSlip)
         {

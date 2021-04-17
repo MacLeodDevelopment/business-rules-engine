@@ -16,10 +16,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         public void Setup()
         {
             _orderWithPhysicalProduct = new Order();
-            _orderWithPhysicalProduct.SetProduct(new Product("Physical"));
+            _orderWithPhysicalProduct.SetProduct(new Product(new ProductConfig {Type = "Physical"}));
 
             _orderWithNonPhysicalProduct = new Order();
-            _orderWithNonPhysicalProduct.SetProduct(new Product("Anything Else"));
+            _orderWithNonPhysicalProduct.SetProduct(new Product(new ProductConfig {Type = "Anything Else"}));
 
             _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
         }

@@ -15,7 +15,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Models
         public void Setup()
         {
             _expectedPackingSlip = new PackingSlip("Any Packing Slip");
-            _expectedProduct = new Product("Any Product");
+            _expectedProduct = new Product(new ProductConfig{Name = "Any Product"});
 
             _order = new Order();
         }
