@@ -62,11 +62,10 @@ namespace BusinessRulesEngine.SharedResources {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order1&quot;,  
-        ///  &quot;productId&quot;: &quot;CAKE01&quot;,
+        ///  &quot;id&quot;: &quot;Order1&quot;,    
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Cake&quot;,
-        ///  &quot;name&quot;: &quot;Battenberg Cake&quot;  
+        ///  &quot;productName&quot;: &quot;Battenberg Cake&quot;  
         ///}.
         /// </summary>
         public static string Order1_json {

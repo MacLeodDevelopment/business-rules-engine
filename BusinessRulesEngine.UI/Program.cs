@@ -35,7 +35,7 @@ namespace BusinessRulesEngine.UI
         {
             foreach (var inputOrder in orders)
             {
-                var order = GetOrder(inputOrder);
+                var order = OrderBuilder.BuildOrderFromInput(inputOrder);
                 OrderProcessor.ProcessOrder(order);
             }
         }
@@ -43,11 +43,6 @@ namespace BusinessRulesEngine.UI
         public static IEnumerable<IBusinessEvent> GetPublishedEvents()
         {
             return ServiceBusEmulator.Events();
-        }
-
-        private static Order GetOrder(InputOrder inputOrder)
-        {
-            return new Order("An Order");
         }
     }
 }

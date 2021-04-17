@@ -16,6 +16,7 @@ namespace BusinessRulesEngine.IoC
             serviceCollection.AddSingleton<IRuleEngine, RuleEngine>();
 
             serviceCollection.AddSingleton<IServiceBus, ServiceBusEmulator>();
+            serviceCollection.AddSingleton<IRuleRepository, RuleRepositoryEmulator>();
 
             return serviceCollection.BuildServiceProvider();
         }

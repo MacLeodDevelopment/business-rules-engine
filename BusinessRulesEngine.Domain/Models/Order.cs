@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BusinessRulesEngine.Domain.Models
+﻿namespace BusinessRulesEngine.Domain.Models
 {
     public class Order
     {
@@ -8,6 +6,7 @@ namespace BusinessRulesEngine.Domain.Models
         public virtual Product Product { get; private set; }
         public virtual PackingSlip PackingSlip { get; private set; }
 
+        // ReSharper disable once UnusedMember.Global
         public Order() { }
 
         public Order(string id)

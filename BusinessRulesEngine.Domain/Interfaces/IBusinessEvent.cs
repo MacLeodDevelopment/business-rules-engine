@@ -3,5 +3,6 @@
     public interface IBusinessEvent
     {
         string Message { get; }
+        object Data { get; }
     }
 }

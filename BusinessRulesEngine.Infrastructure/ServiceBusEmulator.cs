@@ -5,14 +5,21 @@ namespace BusinessRulesEngine.Infrastructure
 {
     public class ServiceBusEmulator : IServiceBus
     {
+        private readonly List<IBusinessEvent> _events;
+
+        public ServiceBusEmulator()
+        {
+            _events = new List<IBusinessEvent>();
+        }
+
         public IEnumerable<IBusinessEvent> Events()
         {
-            return new List<IBusinessEvent> {}; //TODO AMACLEOD 
+            return _events;
         }
 
         public void PublishEvent(IBusinessEvent businessEvent)
         {
-            throw new System.NotImplementedException();
+            _events.Add(businessEvent);
         }
     }
 }
