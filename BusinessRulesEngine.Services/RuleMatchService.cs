@@ -16,8 +16,17 @@ namespace BusinessRulesEngine.Services
 
         public IEnumerable<IRule> GetMatchingRules(Order order)
         {
-            //throw new System.NotImplementedException(); //TODO AMACLEOD
-            return new List<IRule>();
+            var matchingRules = new List<IRule>();
+
+            foreach (var rule in _allRules)
+            {
+                if (rule.IsMatch(order))
+                {
+                    matchingRules.Add(rule);
+                }
+            }
+
+            return matchingRules;
         }
     }
 }
