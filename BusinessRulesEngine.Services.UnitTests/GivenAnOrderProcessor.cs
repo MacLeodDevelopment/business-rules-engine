@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -20,13 +22,13 @@ namespace BusinessRulesEngine.Services.UnitTests
         {
             _validOrder = new Order();
 
-            _expectedMatchingRules = new List<IRule>();
+            _expectedMatchingRules = new List<IRule>(); //TODO AMACLEOD COME BACK AND ADD SOME TEST RULES
             _mockRuleMatchService = new Mock<IRuleMatchService>();
             _mockRuleMatchService.Setup(m => m.GetMatchingRules(_validOrder)).Returns(_expectedMatchingRules);
             
             _mockRuleEngine = new Mock<IRuleEngine>();
 
-            _orderProcessor = new OrderProcessor(_mockRuleMatchService.Object);
+            _orderProcessor = new OrderProcessor(_mockRuleMatchService.Object, _mockRuleEngine.Object);
         }
 
         [Test]
@@ -54,45 +56,5 @@ namespace BusinessRulesEngine.Services.UnitTests
 
             _mockRuleEngine.Verify(m => m.ApplyRules(_expectedMatchingRules, _validOrder), Times.Once());
         }
-
-        //This needs to take in orders, get any rules that apply and then apply them.
-    }
-
-    public interface IRuleEngine
-    {
-        void ApplyRules(IEnumerable<IRule> rules, Order validOrder);
-    }
-
-    public interface IRuleMatchService
-    {
-        IEnumerable<IRule> GetMatchingRules(Order order);
-    }
-
-    public interface IRule
-    {
-    }
-
-    public class OrderProcessor
-    {
-        private readonly IRuleMatchService _ruleMatchService;
-
-        public OrderProcessor(IRuleMatchService ruleMatchService)
-        {
-            _ruleMatchService = ruleMatchService;
-        }
-
-        public void ProcessOrder(Order order)
-        {
-            if (order == null)
-            {
-                throw new ArgumentNullException(nameof(order));
-            }
-
-            var rules = _ruleMatchService.GetMatchingRules(order);
-        }
-    }
-
-    public class Order
-    {
     }
 }

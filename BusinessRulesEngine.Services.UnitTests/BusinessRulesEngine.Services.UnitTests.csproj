@@ -14,4 +14,9 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj" />
+    <ProjectReference Include="..\BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj" />
+  </ItemGroup>
+
 </Project>
