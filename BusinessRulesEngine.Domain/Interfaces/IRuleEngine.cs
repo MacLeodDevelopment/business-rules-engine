@@ -7,12 +7,4 @@ namespace BusinessRulesEngine.Domain.Interfaces
     {
         void ApplyRules(IEnumerable<IRule> rules, Order validOrder);
     }
-
-    public class RuleEngine : IRuleEngine
-    {
-        public void ApplyRules(IEnumerable<IRule> rules, Order validOrder)
-        {
-            //throw new System.NotImplementedException(); //TODO AMACLEOD
-        }
-    }
 }
