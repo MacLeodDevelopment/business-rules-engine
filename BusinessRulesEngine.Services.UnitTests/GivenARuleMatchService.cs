@@ -13,19 +13,24 @@ namespace BusinessRulesEngine.Services.UnitTests
     public class GivenARuleMatchService
     {
         private RuleMatchService _ruleMatchService;
-        private TestMatchingRule _expectedMatch;
         private Mock<IRuleRepository> _mockRuleRepository;
+        private readonly Mock<IRule> _mockRule1 = new Mock<IRule>();
+        private readonly Mock<IRule> _mockRule2 = new Mock<IRule>();
+        private readonly Mock<IRule> _mockRule3 = new Mock<IRule>();
+        private readonly Order _expectedOrder = new Order();
 
         [SetUp]
         public void Setup()
         {
-            _expectedMatch = new TestMatchingRule();
+            _mockRule1.Setup(m => m.IsMatch(_expectedOrder)).Returns(false);
+            _mockRule2.Setup(m => m.IsMatch(_expectedOrder)).Returns(true);
+            _mockRule3.Setup(m => m.IsMatch(_expectedOrder)).Returns(false);
 
             IEnumerable<IRule> allRules = new List<IRule>
             {
-                new TestNonMatchingRule(),
-                _expectedMatch,
-                new TestNonMatchingRule()
+                _mockRule1.Object,
+                _mockRule2.Object,
+                _mockRule3.Object
             };
 
             _mockRuleRepository = new Mock<IRuleRepository>();
@@ -43,26 +48,10 @@ namespace BusinessRulesEngine.Services.UnitTests
         [Test]
         public void WhenGetMatchingRulesIsInvoked_ThenMatchingRulesAreReturned()
         {
-            var actual = _ruleMatchService.GetMatchingRules(It.IsAny<Order>()).ToList();
+            var actual = _ruleMatchService.GetMatchingRules(_expectedOrder).ToList();
 
             actual.Count.Should().Be(1);
-            actual[0].Should().BeEquivalentTo(_expectedMatch);
-        }
-
-        private class TestMatchingRule : IRule
-        {
-            public bool IsMatch(Order order)
-            {
-                return true;
-            }
-        }
-        
-        private class TestNonMatchingRule : IRule
-        {
-            public bool IsMatch(Order order)
-            {
-                return false;
-            }
+            actual[0].Should().BeEquivalentTo(_mockRule2.Object);
         }
     }
 }

@@ -20,8 +20,8 @@ namespace BusinessRulesEngine.Services.UnitTests
         {
             _validOrder = new Order();
 
-            _mockRule1.Setup(m => m.IsMatch(_validOrder));
-            _mockRule2.Setup(m => m.IsMatch(_validOrder));
+            _mockRule1.Setup(m => m.Apply(_validOrder));
+            _mockRule2.Setup(m => m.Apply(_validOrder));
 
             _inputRules = new List<IRule>
             {
@@ -36,8 +36,8 @@ namespace BusinessRulesEngine.Services.UnitTests
         {
             _ruleEngine.ApplyRules(_inputRules, _validOrder);
 
-            _mockRule1.Verify(m => m.IsMatch(_validOrder), Times.Once);
-            _mockRule2.Verify(m => m.IsMatch(_validOrder), Times.Once);
+            _mockRule1.Verify(m => m.Apply(_validOrder), Times.Once);
+            _mockRule2.Verify(m => m.Apply(_validOrder), Times.Once);
         }
     }
 }

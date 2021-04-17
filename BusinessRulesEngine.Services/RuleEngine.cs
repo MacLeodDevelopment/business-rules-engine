@@ -6,9 +6,12 @@ namespace BusinessRulesEngine.Services
 {
     public class RuleEngine : IRuleEngine
     {
-        public void ApplyRules(IEnumerable<IRule> rules, Order validOrder)
+        public void ApplyRules(IEnumerable<IRule> rules, Order order)
         {
-            //throw new System.NotImplementedException(); //TODO AMACLEOD
+            foreach (var rule in rules)
+            {
+                rule.Apply(order);
+            }
         }
     }
 }
