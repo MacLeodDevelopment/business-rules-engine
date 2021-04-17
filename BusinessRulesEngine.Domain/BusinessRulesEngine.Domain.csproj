@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Events\" />
+    <Folder Include="Rules\" />
   </ItemGroup>
 
 </Project>
