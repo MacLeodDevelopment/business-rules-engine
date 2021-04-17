@@ -1,7 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using BusinessRulesEngine.UI.InputModels;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace AcceptanceTests.Steps
+namespace BusinessRulesEngine.AcceptanceTests.Steps
 {
     [Binding]
     public class Scenario1
@@ -15,13 +17,13 @@ namespace AcceptanceTests.Steps
         [When(@"the order is processed")]
         public void WhenTheOrderIsProcessed()
         {
-            
+            UI.Program.ProcessOrders(new List<Order>());
         }
 
         [Then(@"a packing slip is generated for shipping the order")]
         public void ThenAPackingSlipIsGeneratedForShippingTheOrder()
         {
-            Assert.Fail("Test isn't implemented yet.");
+            UI.Program.GetPublishedEvents();
         }
     }
 }
