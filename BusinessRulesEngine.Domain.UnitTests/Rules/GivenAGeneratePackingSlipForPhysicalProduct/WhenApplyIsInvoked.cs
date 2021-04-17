@@ -4,7 +4,7 @@ using BusinessRulesEngine.Domain.Rules;
 using Moq;
 using NUnit.Framework;
 
-namespace BusinessRulesEngine.Domain.UnitTests.Rules
+namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGeneratePackingSlipForPhysicalProduct
 {
     /// <remarks>
     /// Some of the tests in here are more like integration tests.
@@ -13,7 +13,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
     /// is anemic (sic) domain models which some argue is an anti-pattern.
     /// </remarks>
     [TestFixture]
-    public class GivenAGeneratePackingSlipForPhysicalProductWhenApplyIsInvoked
+    public class WhenApplyIsInvoked
     {
         private GeneratePackingSlipForPhysicalProduct _generatePackingSlipForPhysicalProduct;
         private Mock<Order> _mockOrder;

@@ -5,10 +5,10 @@ using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 
-namespace BusinessRulesEngine.Domain.UnitTests.Rules
+namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGeneratePackingSlipForPhysicalProduct
 {
     [TestFixture]
-    public class GivenAGeneratePackingSlipForPhysicalProductWhenIsMatchIsInvoked
+    public class WhenIsMatchIsInvoked
     {
         private GeneratePackingSlipForPhysicalProduct _generatePackingSlipForPhysicalProduct;
         private Order _orderWithPhysicalProduct;
