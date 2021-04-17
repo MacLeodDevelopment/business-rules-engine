@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.Domain.Models;
-using BusinessRulesEngine.Services;
+using BusinessRulesEngine.Domain.Models.Events;
 using BusinessRulesEngine.UI.InputModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,20 +9,30 @@ namespace BusinessRulesEngine.UI
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static readonly IOrderProcessor OrderProcessor;
+
+        static  Program()
         {
-            Console.WriteLine("Hello World!");
+            var serviceProvider = IoC.DependencyResolver.ServiceProvider();
+            OrderProcessor = serviceProvider.GetService<IOrderProcessor>();
+        }
+
+        public static void Main()
+        {
+            var inputOrders = new List<InputOrder>
+            {
+                new InputOrder { }
+            }; //TODO AMACLEOD Populate from JSON files or something. 
+
+            ProcessOrders(inputOrders);
         }
 
         public static void ProcessOrders(IEnumerable<InputOrder> orders)
         {
-            var serviceProvider = IoC.DependencyResolver.ServiceProvider();
-            var orderProcessor = serviceProvider.GetService<IOrderProcessor>();
-
             foreach (var inputOrder in orders)
             {
-                var order = new Order();
-                orderProcessor.ProcessOrder(order);
+                var order = GetOrder(inputOrder);
+                OrderProcessor.ProcessOrder(order);
             }
         }
 
@@ -31,20 +40,10 @@ namespace BusinessRulesEngine.UI
         {
             return new List<IBusinessEvent> {new PackingSlipCreated()};
         }
-    }
 
-    public class PackingSlipCreated : IBusinessEvent
-    {
-        public string Message { get; }
-
-        public PackingSlipCreated()
+        private static Order GetOrder(InputOrder inputOrder)
         {
-            Message = "Packing Slip Created";
+            return new Order();
         }
-    }
-
-    public interface IBusinessEvent
-    {
-        string Message { get; }
     }
 }
