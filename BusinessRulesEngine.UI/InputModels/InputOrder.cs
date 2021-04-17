@@ -1,6 +1,6 @@
 ﻿namespace BusinessRulesEngine.UI.InputModels
 {
-    public class Order
+    public class InputOrder
     {
         
     }
