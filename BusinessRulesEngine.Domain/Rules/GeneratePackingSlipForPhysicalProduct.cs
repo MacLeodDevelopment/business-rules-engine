@@ -12,7 +12,8 @@ namespace BusinessRulesEngine.Domain.Rules
 
         public void Apply(Order order)
         {
-            throw new System.NotImplementedException();
+            var packingSlip = new PackingSlip("Shipping");
+            order.SetPackingSlip(packingSlip);
         }
     }
 }

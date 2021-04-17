@@ -10,12 +10,12 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
     {
         private GeneratePackingSlipForPhysicalProduct _generatePackingSlipForPhysicalProduct;
         private Mock<Order> _mockOrder;
-
+        
         [SetUp]
         public void Setup()
         {
             _mockOrder = new Mock<Order>();
-            _mockOrder.Setup(m => m.SetPackingSlip("Shipping"));
+            _mockOrder.Setup(m => m.SetPackingSlip(new PackingSlip("Anything")));
 
             _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
         }
@@ -25,7 +25,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         {
             _generatePackingSlipForPhysicalProduct.Apply(_mockOrder.Object);
 
-            _mockOrder.Verify(m => m.SetPackingSlip("Shipping"), Times.Once);
+            _mockOrder.Verify(m => m.SetPackingSlip(It.IsAny<PackingSlip>()), Times.Once);
         }
     }
 }

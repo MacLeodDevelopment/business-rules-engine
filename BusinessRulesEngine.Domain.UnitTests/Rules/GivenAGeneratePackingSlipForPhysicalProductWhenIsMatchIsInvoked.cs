@@ -15,15 +15,11 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         [SetUp]
         public void Setup()
         {
-            _orderWithPhysicalProduct = new Order
-            {
-                Product = new Product("Physical")
-            };
+            _orderWithPhysicalProduct = new Order();
+            _orderWithPhysicalProduct.SetProduct(new Product("Physical"));
 
-            _orderWithNonPhysicalProduct = new Order
-            {
-                Product = new Product("Anything Else")
-            };
+            _orderWithNonPhysicalProduct = new Order();
+            _orderWithNonPhysicalProduct.SetProduct(new Product("Anything Else"));
 
             _generatePackingSlipForPhysicalProduct = new GeneratePackingSlipForPhysicalProduct();
         }
@@ -53,7 +49,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
         [Test]
         public void WithAnInvalidProduct_ThenFalseIsReturned()
         {
-            var actual = _generatePackingSlipForPhysicalProduct.IsMatch(new Order {Product = new Product(null)});
+            var actual = _generatePackingSlipForPhysicalProduct.IsMatch(new Order());
             actual.Should().BeFalse();
         }
     }

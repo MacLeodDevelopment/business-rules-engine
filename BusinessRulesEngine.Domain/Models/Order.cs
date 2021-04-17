@@ -2,11 +2,17 @@
 {
     public class Order
     {
-        public Product Product { get; set; }
+        public Product Product { get; private set; }
+        public PackingSlip PackingSlip { get; private set; }
 
-        public void SetPackingSlip(string shipping)
+        public virtual void SetPackingSlip(PackingSlip packingSlip)
         {
-            throw new System.NotImplementedException();
+            PackingSlip = packingSlip;
+        }
+
+        public virtual void SetProduct(Product product)
+        {
+            Product = product;
         }
     }
 }
