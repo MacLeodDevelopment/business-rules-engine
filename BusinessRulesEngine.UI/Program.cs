@@ -5,6 +5,7 @@ using BusinessRulesEngine.Domain.Models.Events;
 using BusinessRulesEngine.Infrastructure;
 using BusinessRulesEngine.UI.InputModels;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace BusinessRulesEngine.UI
 {
@@ -24,8 +25,8 @@ namespace BusinessRulesEngine.UI
         {
             var inputOrders = new List<InputOrder>
             {
-                new InputOrder { }
-            }; //TODO AMACLEOD Populate from JSON files or something. 
+                JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Order1_json)
+            }; //TODO AMACLEOD WE'LL NEED SOME SORT OF UI INPUT TO DECIDE WHICH SCENARIO TO RUN?
 
             ProcessOrders(inputOrders);
         }

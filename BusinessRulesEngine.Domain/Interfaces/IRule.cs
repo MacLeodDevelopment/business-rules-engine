@@ -1,6 +1,9 @@
-﻿namespace BusinessRulesEngine.Domain.Interfaces
+﻿using BusinessRulesEngine.Domain.Models;
+
+namespace BusinessRulesEngine.Domain.Interfaces
 {
     public interface IRule
     {
+        bool IsMatch(Order order);
     }
 }

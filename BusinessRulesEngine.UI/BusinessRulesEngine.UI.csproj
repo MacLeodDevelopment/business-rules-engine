@@ -6,10 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj" />
     <ProjectReference Include="..\BusinessRulesEngine.Infrastructure\BusinessRulesEngine.Infrastructure.csproj" />
     <ProjectReference Include="..\BusinessRulesEngine.IoC\BusinessRulesEngine.IoC.csproj" />
     <ProjectReference Include="..\BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj" />
+    <ProjectReference Include="..\BusinessRulesEngine.SharedResources\BusinessRulesEngine.SharedResources.csproj" />
   </ItemGroup>
 
 </Project>

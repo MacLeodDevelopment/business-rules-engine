@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.IoC", "BusinessRulesEngine.IoC\BusinessRulesEngine.IoC.csproj", "{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.SharedResources", "BusinessRulesEngine.SharedResources\BusinessRulesEngine.SharedResources.csproj", "{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,12 @@ Scenario: A shipping packing slip is generated for orders containing a physical 
 	When the order is processed
 	Then a packing slip is generated for shipping the order
 
+@Scenario2
+Scenario: A duplicate packing slip for the royalty department is generated for orders containing a book
+	Given an order containing a book
+	When the order is processed
+	Then a duplicate packing slip is generated for the royalty department
+
 #Scenarios
 #
 # Physical product, generate a packing slip for shipping

@@ -2,6 +2,7 @@
 using System.Linq;
 using BusinessRulesEngine.UI.InputModels;
 using FluentAssertions;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -20,19 +21,12 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [Given(@"an order containing a physical product")]
         public void GivenAnOrderContainingAPhysicalProduct()
         {
-            var order = new InputOrder(); //TODO AMACLEOD POPULATE FROM JSON? 
+            var order = JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Order1_json);
             var orders = new List<InputOrder> {order};
 
             _scenarioContext.Add("Orders", orders);
         }
-
-        [When(@"the order is processed")]
-        public void WhenTheOrderIsProcessed()
-        {
-            var orders = _scenarioContext.Get<IEnumerable<InputOrder>>("Orders");
-            UI.Program.ProcessOrders(orders);
-        }
-
+        
         [Then(@"a packing slip is generated for shipping the order")]
         public void ThenAPackingSlipIsGeneratedForShippingTheOrder()
         {

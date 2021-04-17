@@ -8,7 +8,7 @@ namespace BusinessRulesEngine.Infrastructure
     {
         public IEnumerable<IBusinessEvent> Events()
         {
-            return new List<IBusinessEvent> { new PackingSlipCreated() }; //TODO AMACLEOD 
+            return new List<IBusinessEvent> {}; //TODO AMACLEOD 
         }
     }
 }
