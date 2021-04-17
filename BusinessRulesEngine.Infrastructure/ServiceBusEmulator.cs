@@ -5,10 +5,12 @@ namespace BusinessRulesEngine.Infrastructure
 {
     public class ServiceBusEmulator : IServiceBus
     {
+        private readonly ILogger _logger;
         private readonly List<IBusinessEvent> _events;
 
-        public ServiceBusEmulator()
+        public ServiceBusEmulator(ILogger logger)
         {
+            _logger = logger;
             _events = new List<IBusinessEvent>();
         }
 
@@ -19,6 +21,7 @@ namespace BusinessRulesEngine.Infrastructure
 
         public void PublishEvent(IBusinessEvent businessEvent)
         {
+            _logger.Log(businessEvent.Message);
             _events.Add(businessEvent);
         }
     }

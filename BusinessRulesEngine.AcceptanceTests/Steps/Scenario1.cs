@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.UI.InputModels;
 using FluentAssertions;
 using Newtonsoft.Json;
@@ -34,6 +35,17 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
 
             events.Count.Should().Be(1);
             events[0].Message.Should().Be("Order1: Packing slip CREATED for Shipping.");
+            
+            var packingSlip = events[0].Data as PackingSlip;
+
+            if (packingSlip == null)
+            {
+                Assert.Fail();
+            }
+
+            packingSlip.Department.Should().Be("Shipping");
+            packingSlip.Products.Count.Should().Be(1);
+            packingSlip.Products.Single().Should().Be("Battenberg (Cake)");
         }
     }
 }

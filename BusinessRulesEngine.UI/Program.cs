@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Models.Events;
@@ -29,6 +30,8 @@ namespace BusinessRulesEngine.UI
             }; //TODO AMACLEOD WE'LL NEED SOME SORT OF UI INPUT TO DECIDE WHICH SCENARIO TO RUN?
 
             ProcessOrders(inputOrders);
+
+            Console.ReadLine();
         }
 
         public static void ProcessOrders(IEnumerable<InputOrder> orders)

@@ -65,7 +65,7 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;id&quot;: &quot;Order1&quot;,    
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Cake&quot;,
-        ///  &quot;productName&quot;: &quot;Battenberg Cake&quot;  
+        ///  &quot;productName&quot;: &quot;Battenberg&quot;  
         ///}.
         /// </summary>
         public static string Order1_json {

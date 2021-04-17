@@ -2,5 +2,5 @@
   "id": "Order1",    
   "productType": "Physical",
   "productSubType": "Cake",
-  "productName": "Battenberg Cake"  
+  "productName": "Battenberg"  
 }
