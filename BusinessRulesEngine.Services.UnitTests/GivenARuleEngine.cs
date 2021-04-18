@@ -18,7 +18,7 @@ namespace BusinessRulesEngine.Services.UnitTests
         [SetUp]
         public void Setup()
         {
-            _validOrder = new Order("An Order");
+            _validOrder = new Order(new OrderConfig { Id = "An Order" });
 
             _mockRule1.Setup(m => m.Apply(_validOrder));
             _mockRule2.Setup(m => m.Apply(_validOrder));

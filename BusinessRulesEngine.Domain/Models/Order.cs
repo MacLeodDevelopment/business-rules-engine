@@ -2,17 +2,18 @@
 {
     public class Order
     {
-        public string Id { get; }
+        public virtual string Id { get; }
         public virtual Product Product { get; private set; }
         public virtual PackingSlip PackingSlip { get; private set; }
+        public virtual string AgentId { get; }
 
         // ReSharper disable once UnusedMember.Global
         public Order() { }
 
-        public Order(string id)
+        public Order(OrderConfig orderConfig)
         {
-            Id = id;
-            PackingSlip = new PackingSlip();
+            Id = orderConfig.Id;
+            AgentId = orderConfig.AgentId;
         }
 
         public virtual void SetPackingSlip(PackingSlip packingSlip)

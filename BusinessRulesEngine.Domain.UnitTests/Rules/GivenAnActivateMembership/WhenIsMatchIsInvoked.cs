@@ -23,10 +23,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAnActivateMembership
                 SubType = "Activate"
             });
             
-            _activateMembershipOrder = new Order("Test Activate Membership Order");
+            _activateMembershipOrder = new Order(new OrderConfig { Id = "Test Activate Membership Order" });
             _activateMembershipOrder.SetProduct(membership);
 
-            _anyOtherOrder = new Order("Anything");
+            _anyOtherOrder = new Order(new OrderConfig { Id = "An Order" });
             _anyOtherOrder.SetProduct(new Product(new ProductConfig{Type = "Anything"}));
 
             _activateMembership = new ActivateMembership(new Mock<IServiceBus>().Object);

@@ -43,7 +43,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         public void ThenAFreeFirstAidVideoIsAddedToThePackingSlip()
         {
             var events = UI.Program.GetPublishedEvents().ToList();
-            events.Count.Should().Be(2);
+            events.Count.Should().BeGreaterOrEqualTo(2);
 
             var packingSlipCreatedEvent = events[0];
             packingSlipCreatedEvent.Message.Should().Be("VIDEO_ORDER: Packing slip CREATED for Shipping.");

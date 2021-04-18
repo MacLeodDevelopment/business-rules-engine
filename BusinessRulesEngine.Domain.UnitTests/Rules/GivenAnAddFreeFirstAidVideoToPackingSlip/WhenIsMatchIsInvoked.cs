@@ -17,10 +17,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAnAddFreeFirstAidVideo
         [SetUp]
         public void Setup()
         {
-            _orderWithLearnToSkiVideo = new Order("Learning to Ski Video Order");
+            _orderWithLearnToSkiVideo = new Order(new OrderConfig { Id = "Learning to Ski Video Order" });
             _orderWithLearnToSkiVideo.SetProduct(new Product(new ProductConfig { SubType = "Video", Name  = "Learning to Ski"}));
 
-            _orderWithAnythingElse = new Order("Other Order");
+            _orderWithAnythingElse = new Order(new OrderConfig { Id = "Other Order" });
             _orderWithAnythingElse.SetProduct(new Product(new ProductConfig { SubType = "Other Product" }));
 
             _addFreeFirstAidVideoToPackingSlip = new AddFreeFirstAidVideoToPackingSlip(new Mock<IServiceBus>().Object);

@@ -3,5 +3,6 @@
   "productId":"CAKE001",
   "productType": "Physical",
   "productSubType": "Cake",
-  "productName": "Battenberg"  
+  "productName": "Battenberg",  
+  "agentId" : "PHYSICAL_PRODUCT_AGENT_ID"
 }

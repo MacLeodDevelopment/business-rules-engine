@@ -22,10 +22,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAGenerateDuplicatePack
         [SetUp]
         public void Setup()
         {
-            _orderWithABook = new Order("Book Order");
+            _orderWithABook = new Order(new OrderConfig { Id = "Book Order" });
             _orderWithABook.SetProduct(new Product(new ProductConfig{SubType = "Book"}));
 
-            _orderWithNonBook = new Order("Other Order");
+            _orderWithNonBook = new Order(new OrderConfig { Id = "Other Order" });
             _orderWithNonBook.SetProduct(new Product(new ProductConfig{SubType = "Other Product"}));
 
             _generateDuplicatePackingSlipForBook = new GenerateDuplicatePackingSlipForBook(new Mock<IServiceBus>().Object);

@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using BusinessRulesEngine.Domain.Models;
-using BusinessRulesEngine.UI.InputModels;
 using FluentAssertions;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -30,7 +27,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         public void ThenAPackingSlipIsGeneratedForShippingTheOrder()
         {
             var events = UI.Program.GetPublishedEvents().ToList();
-            events.Count.Should().Be(1);
+            events.Count.Should().BeGreaterOrEqualTo(1);
             
             var packingSlipCreatedEvent = events[0];
             packingSlipCreatedEvent.Message.Should().Be("PHYSICAL_PRODUCT_ORDER: Packing slip CREATED for Shipping.");

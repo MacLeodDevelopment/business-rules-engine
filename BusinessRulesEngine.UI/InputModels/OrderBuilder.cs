@@ -6,7 +6,11 @@ namespace BusinessRulesEngine.UI.InputModels
     {
         public static Order BuildOrderFromInput(InputOrder inputOrder)
         {
-            var order = new Order(inputOrder.Id);
+            var order = new Order(new OrderConfig
+            {
+                Id = inputOrder.Id,
+                AgentId = inputOrder.agentId
+            });
 
             var productConfig = new ProductConfig
             {
@@ -18,7 +22,7 @@ namespace BusinessRulesEngine.UI.InputModels
 
             var product = new Product(productConfig);
             order.SetProduct(product);
-
+            
             return order;
         }
     }

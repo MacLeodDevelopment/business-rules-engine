@@ -3,5 +3,6 @@
   "productId":"VIDEO001",
   "productType": "Physical",
   "productSubType": "Video",
-  "productName": "Learning to Ski"  
+  "productName": "Learning to Ski",  
+  "agentId" : "VIDEO_AGENT_ID"  
 }

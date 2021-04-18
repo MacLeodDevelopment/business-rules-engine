@@ -29,7 +29,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAMembershipEmail
                 SubType = "Activate"
             });
 
-            _activateMembershipOrder = new Order("Test Activate Membership Order");
+            _activateMembershipOrder = new Order(new OrderConfig { Id = "Test Activate Membership Order" });
             _activateMembershipOrder.SetProduct(_activateMembershipProduct);
 
             _upgradeMembershipProduct = new Product(new ProductConfig
@@ -38,10 +38,10 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAMembershipEmail
                 SubType = "Upgrade"
             });
 
-            _upgradeMembershipOrder = new Order("Test Upgrade Membership Order");
+            _upgradeMembershipOrder = new Order(new OrderConfig { Id = "Test Upgrade Membership Order" });
             _upgradeMembershipOrder.SetProduct(_upgradeMembershipProduct);
 
-            _anyOtherOrder = new Order("Anything");
+            _anyOtherOrder = new Order(new OrderConfig { Id = "An Order" });
             _anyOtherOrder.SetProduct(new Product(new ProductConfig { Type = "Anything" }));
 
             _membershipEmail = new MembershipEmail(new Mock<IServiceBus>().Object);

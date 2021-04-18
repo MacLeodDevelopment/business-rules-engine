@@ -45,6 +45,17 @@ And  and the order was placed after 1997
 When the order is processed
 Then a free First Aid video is added to the packing slip
 
+@Scenario8
+Scenario: A commission payment is generated for the agent when an order contains a physical product
+Given an order containing a physical product
+When the order is processed
+Then a commission payment is generated for the physical product agent
+
+@Scenario9
+Scenario: A commission payment is generated for the agent when an order contains a book
+Given an order containing a book
+When the order is processed
+Then a commission payment is generated for the book agent
 
 #Scenarios
 #

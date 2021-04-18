@@ -16,8 +16,8 @@ namespace BusinessRulesEngine.Infrastructure
         }
 
         /// <remarks>
-        /// This could load rules from anywhere - use reflection to get classes that implement IRule for example.
-        /// For expediency I've hard-coded this for now. 
+        /// This could load rules from anywhere - for example, use reflection to get classes that implement IRule.
+        /// For expediency I've hard-coded this for now, but in a real application this would be dynamic. 
         /// </remarks>
         public IEnumerable<IRule> AllRules()
         {
@@ -28,7 +28,8 @@ namespace BusinessRulesEngine.Infrastructure
                 new ActivateMembership(_serviceBus),
                 new UpgradeMembership(_serviceBus),
                 new MembershipEmail(_serviceBus),
-                new AddFreeFirstAidVideoToPackingSlip(_serviceBus)
+                new AddFreeFirstAidVideoToPackingSlip(_serviceBus),
+                new GenerateCommissionPayment(_serviceBus)
             };
         }
     }

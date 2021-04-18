@@ -3,5 +3,6 @@
   "productId": "UPGRADE_MEMBER_ID",
   "productType": "Membership",
   "productSubType": "Upgrade",
-  "productName": "Membership Upgrade"  
+  "productName": "Membership Upgrade",  
+  "agentId" : "MEMBERSHIP_UPGRADE_AGENT_ID"  
 }

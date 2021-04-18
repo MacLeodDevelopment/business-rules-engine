@@ -20,7 +20,7 @@ namespace BusinessRulesEngine.Services.UnitTests
         [SetUp]
         public void Setup()
         {
-            _validOrder = new Order("An Order");
+            _validOrder = new Order(new OrderConfig { Id = "An Order" });
 
             _expectedMatchingRules = new List<IRule>(); //TODO AMACLEOD COME BACK AND ADD SOME TEST RULES
             _mockRuleMatchService = new Mock<IRuleMatchService>();

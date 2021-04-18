@@ -3,5 +3,6 @@
   "productId":"BOOK001",
   "productType": "Physical",
   "productSubType": "Book",
-  "productName": "The Day of The Triffids"  
+  "productName": "The Day of The Triffids",  
+  "agentId" : "BOOK_AGENT_ID"  
 }

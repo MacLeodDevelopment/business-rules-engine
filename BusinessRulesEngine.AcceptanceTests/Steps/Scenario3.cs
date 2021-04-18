@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using BusinessRulesEngine.Domain.Models;
 using FluentAssertions;
-using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace BusinessRulesEngine.AcceptanceTests.Steps

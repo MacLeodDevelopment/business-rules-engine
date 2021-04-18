@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using BusinessRulesEngine.Domain.Models;
-using BusinessRulesEngine.UI.InputModels;
 using FluentAssertions;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -30,7 +27,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         public void ThenADuplicatePackingSlipIsGeneratedForTheRoyaltyDepartment()
         {
             var events = UI.Program.GetPublishedEvents().ToList();
-            events.Count.Should().Be(2);
+            events.Count.Should().BeGreaterOrEqualTo(2);
             
             var packingSlipDuplicatedEvent = events[1];
             packingSlipDuplicatedEvent.Message.Should().Be("BOOK_ORDER: Packing slip DUPLICATED for Royalty Department.");

@@ -3,5 +3,6 @@
   "productId": "ACTIVATION_MEMBER_ID",
   "productType": "Membership",
   "productSubType": "Activate",
-  "productName": "Membership Activation"  
+  "productName": "Membership Activation",  
+  "agentId" : "MEMBERSHIP_ACTIVATION_AGENT_ID"  
 }

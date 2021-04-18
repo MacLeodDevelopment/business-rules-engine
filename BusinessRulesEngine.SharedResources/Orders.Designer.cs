@@ -66,7 +66,8 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;productId&quot;:&quot;BOOK001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Book&quot;,
-        ///  &quot;productName&quot;: &quot;The Day of The Triffids&quot;  
+        ///  &quot;productName&quot;: &quot;The Day of The Triffids&quot;,  
+        ///  &quot;agentId&quot; : &quot;BOOK_AGENT_ID&quot;  
         ///}.
         /// </summary>
         public static string Book_json {
@@ -81,7 +82,8 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;productId&quot;: &quot;ACTIVATION_MEMBER_ID&quot;,
         ///  &quot;productType&quot;: &quot;Membership&quot;,
         ///  &quot;productSubType&quot;: &quot;Activate&quot;,
-        ///  &quot;productName&quot;: &quot;Membership Activation&quot;  
+        ///  &quot;productName&quot;: &quot;Membership Activation&quot;,  
+        ///  &quot;agentId&quot; : &quot;MEMBERSHIP_ACTIVATION_AGENT_ID&quot;  
         ///}.
         /// </summary>
         public static string Membership_Activation_json {
@@ -96,7 +98,8 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;productId&quot;: &quot;UPGRADE_MEMBER_ID&quot;,
         ///  &quot;productType&quot;: &quot;Membership&quot;,
         ///  &quot;productSubType&quot;: &quot;Upgrade&quot;,
-        ///  &quot;productName&quot;: &quot;Membership Upgrade&quot;  
+        ///  &quot;productName&quot;: &quot;Membership Upgrade&quot;,  
+        ///  &quot;agentId&quot; : &quot;MEMBERSHIP_UPGRADE_AGENT_ID&quot;  
         ///}.
         /// </summary>
         public static string Membership_Upgrade_json {
@@ -111,7 +114,8 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;productId&quot;:&quot;CAKE001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Cake&quot;,
-        ///  &quot;productName&quot;: &quot;Battenberg&quot;  
+        ///  &quot;productName&quot;: &quot;Battenberg&quot;,  
+        ///  &quot;agentId&quot; : &quot;PHYSICAL_PRODUCT_AGENT_ID&quot;
         ///}.
         /// </summary>
         public static string Physical_Product_json {
@@ -126,7 +130,8 @@ namespace BusinessRulesEngine.SharedResources {
         ///  &quot;productId&quot;:&quot;VIDEO001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Video&quot;,
-        ///  &quot;productName&quot;: &quot;Learning to Ski&quot;  
+        ///  &quot;productName&quot;: &quot;Learning to Ski&quot;,  
+        ///  &quot;agentId&quot; : &quot;VIDEO_AGENT_ID&quot;  
         ///}.
         /// </summary>
         public static string Video_json {
