@@ -62,7 +62,8 @@ namespace BusinessRulesEngine.SharedResources {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order1&quot;,    
+        ///  &quot;id&quot;: &quot;Order1&quot;,  
+        ///  &quot;productId&quot;:&quot;CAKE001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Cake&quot;,
         ///  &quot;productName&quot;: &quot;Battenberg&quot;  
@@ -77,6 +78,7 @@ namespace BusinessRulesEngine.SharedResources {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///  &quot;id&quot;: &quot;Order2&quot;,    
+        ///  &quot;productId&quot;:&quot;BOOK001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Book&quot;,
         ///  &quot;productName&quot;: &quot;The Day of The Triffids&quot;  
@@ -85,6 +87,21 @@ namespace BusinessRulesEngine.SharedResources {
         public static string Order2_json {
             get {
                 return ResourceManager.GetString("Order2_json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;id&quot;: &quot;Order3&quot;,    
+        ///  &quot;productId&quot;: &quot;MEMBER001&quot;,
+        ///  &quot;productType&quot;: &quot;Membership&quot;,
+        ///  &quot;productSubType&quot;: &quot;Activate&quot;,
+        ///  &quot;productName&quot;: &quot;Membership Activation&quot;  
+        ///}.
+        /// </summary>
+        public static string Order3_json {
+            get {
+                return ResourceManager.GetString("Order3_json", resourceCulture);
             }
         }
     }

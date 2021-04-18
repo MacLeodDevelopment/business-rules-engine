@@ -13,6 +13,14 @@ Scenario: A duplicate packing slip for the royalty department is generated for o
 	When the order is processed
 	Then a duplicate packing slip is generated for the royalty department
 
+@Scenario3
+Scenario: A membership order activates the membership
+Given an order containing a membership
+When the order is processed
+Then the membership is activated
+
+
+
 #Scenarios
 #
 # Physical product, generate a packing slip for shipping

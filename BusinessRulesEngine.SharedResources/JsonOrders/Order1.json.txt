@@ -1,5 +1,6 @@
 ﻿{
-  "id": "Order1",    
+  "id": "Order1",  
+  "productId":"CAKE001",
   "productType": "Physical",
   "productSubType": "Cake",
   "productName": "Battenberg"  

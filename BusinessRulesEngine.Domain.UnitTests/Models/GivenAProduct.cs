@@ -1,5 +1,4 @@
-﻿using System;
-using BusinessRulesEngine.Domain.Models;
+﻿using BusinessRulesEngine.Domain.Models;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -15,10 +14,17 @@ namespace BusinessRulesEngine.Domain.UnitTests.Models
         {
             _product = new Product(new ProductConfig
             {
+                Id = "Expected Id",
                 Name = "Expected Name",
                 Type = "Expected Type",
                 SubType = "Expected SubType"
             });
+        }
+
+        [Test]
+        public void ThenIdIsSetFromTheConstructor()
+        {
+            _product.Id.Should().Be("Expected Id");
         }
 
         [Test]

@@ -2,7 +2,6 @@
 using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Models.Events;
 using BusinessRulesEngine.Domain.Rules;
-using BusinessRulesEngine.Domain.UnitTests.Events;
 using Moq;
 using NUnit.Framework;
 

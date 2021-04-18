@@ -22,9 +22,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [Given(@"an order containing a physical product")]
         public void GivenAnOrderContainingAPhysicalProduct()
         {
-            var order = JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Order1_json);
-            var orders = new List<InputOrder> {order};
-
+            var orders = OrderHelper.GetOrderInput(SharedResources.Orders.Order1_json);
             _scenarioContext.Add(StepConstants.OrdersKey, orders);
         }
         

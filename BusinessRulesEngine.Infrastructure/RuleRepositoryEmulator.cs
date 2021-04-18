@@ -22,7 +22,8 @@ namespace BusinessRulesEngine.Infrastructure
             return new List<IRule>
             {
                 new GeneratePackingSlipForPhysicalProduct(_serviceBus),
-                new GenerateDuplicatePackingSlipForBook(_serviceBus)
+                new GenerateDuplicatePackingSlipForBook(_serviceBus),
+                new ActivateMembership(_serviceBus)
             };
         }
     }

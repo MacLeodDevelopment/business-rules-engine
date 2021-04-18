@@ -18,4 +18,8 @@
     <ProjectReference Include="..\BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Rules\GivenAnActivateMembership\" />
+  </ItemGroup>
+
 </Project>

@@ -10,6 +10,7 @@ namespace BusinessRulesEngine.UI.InputModels
 
             var productConfig = new ProductConfig
             {
+                Id = inputOrder.ProductId,
                 Name = inputOrder.ProductName,
                 Type = inputOrder.ProductType,
                 SubType = inputOrder.ProductSubType
