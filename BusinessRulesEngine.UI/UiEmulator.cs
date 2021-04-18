@@ -65,17 +65,13 @@ namespace BusinessRulesEngine.UI
             Console.WriteLine();
             Console.WriteLine(@"Please choose one of the following orders to process:");
             Console.WriteLine();
-            Console.WriteLine(@"1. An order containing a physical product will generate a packing slip for shipping.");
-            Console.WriteLine(@"2. An order containing a book will create a duplicate packing slip for the Royalty Department.");
-            Console.WriteLine(@"3. An order for a membership will activate the membership.");
-            Console.WriteLine(@"4. An order for a membership upgrade will apply the upgrade.");
-            Console.WriteLine(@"5. An order for a membership will email the owner.");
-            Console.WriteLine(@"6. An order for a membership upgrade will email the owner.");
-            Console.WriteLine(@"7. An order for 'Learning to Ski' adds a free 'First Aid' video to the packing slip.");
-            Console.WriteLine(@"8. An order containing a physical product will generate a commission payment to the agent.");
-            Console.WriteLine(@"9. An order containing a book will generate a commission payment to the agent.");
+            Console.WriteLine(@"1. An order containing a physical product.");
+            Console.WriteLine(@"2. An order containing a book.");
+            Console.WriteLine(@"3. An order for a membership.");
+            Console.WriteLine(@"4. An order for a membership upgrade.");
+            Console.WriteLine(@"5. An order containing a 'Learning to Ski' video.");
             Console.WriteLine();
-            Console.WriteLine(@"Enter a number 1-9 to run a scenario, or press A to run all scenarios.");
+            Console.WriteLine(@"Enter a number 1-5 to run a scenario, or press A to run all scenarios.");
             Console.WriteLine();
         }
 
@@ -107,23 +103,11 @@ namespace BusinessRulesEngine.UI
                 case ConsoleKey.D5:
                 case ConsoleKey.NumPad5:
                     return 5;
-                case ConsoleKey.D6:
-                case ConsoleKey.NumPad6:
-                    return 6;
-                case ConsoleKey.D7:
-                case ConsoleKey.NumPad7:
-                    return 7;
-                case ConsoleKey.D8:
-                case ConsoleKey.NumPad8:
-                    return 8;
-                case ConsoleKey.D9:
-                case ConsoleKey.NumPad9:
-                    return 9;
                 case ConsoleKey.A:
                     return 10;
                 default:
                     Console.WriteLine();
-                    Console.WriteLine(@"Please enter a number from 1 to 9.");
+                    Console.WriteLine(@"Please enter a number from 1 to 5.");
                     return GetScenarioChoice(Console.ReadKey().Key);
             }
         }

@@ -26,18 +26,14 @@ namespace BusinessRulesEngine.UI
             switch (scenarioNumber)
             {
                 case 1:
-                case 8:
                     return AllScenarios.GetRange(0, 1); //Physical Product
                 case 2:
-                case 9:
                     return AllScenarios.GetRange(1, 1); //Book 
                 case 3:
-                case 5:
                     return AllScenarios.GetRange(2, 1); //Membership Activated
                 case 4:
-                case 6:
                     return AllScenarios.GetRange(3, 1); //Membership Upgrade
-                case 7:
+                case 5:
                     return AllScenarios.GetRange(4, 1); //Video
                 case 10:
                     return AllScenarios;
