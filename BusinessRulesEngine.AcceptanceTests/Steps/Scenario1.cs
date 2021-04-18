@@ -22,7 +22,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [Given(@"an order containing a physical product")]
         public void GivenAnOrderContainingAPhysicalProduct()
         {
-            var orders = OrderHelper.GetOrderInput(SharedResources.Orders.Order1_json);
+            var orders = OrderHelper.GetOrderInput(SharedResources.Orders.Physical_Product_json);
             _scenarioContext.Add(StepConstants.OrdersKey, orders);
         }
         
@@ -33,7 +33,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
             events.Count.Should().Be(1);
             
             var packingSlipCreatedEvent = events[0];
-            packingSlipCreatedEvent.Message.Should().Be("Order1: Packing slip CREATED for Shipping.");
+            packingSlipCreatedEvent.Message.Should().Be("PHYSICAL_PRODUCT_ORDER: Packing slip CREATED for Shipping.");
             
             var packingSlip = packingSlipCreatedEvent.Data as PackingSlip;
 

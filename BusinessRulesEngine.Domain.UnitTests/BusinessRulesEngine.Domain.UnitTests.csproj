@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="Rules\GivenAnActivateMembership\" />
     <Folder Include="Rules\GivenAnUpgradeMembership\" />
+    <Folder Include="Rules\GivenAMembershipEmail\" />
   </ItemGroup>
 
 </Project>

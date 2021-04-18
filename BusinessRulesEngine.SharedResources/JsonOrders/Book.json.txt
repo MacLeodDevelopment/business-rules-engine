@@ -1,5 +1,5 @@
 ﻿{
-  "id": "Order2",    
+  "id": "BOOK_ORDER",    
   "productId":"BOOK001",
   "productType": "Physical",
   "productSubType": "Book",

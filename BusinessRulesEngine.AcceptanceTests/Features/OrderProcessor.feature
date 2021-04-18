@@ -25,6 +25,18 @@ Given an order containing a membership upgrade
 When the order is processed
 Then the membership is upgraded
 
+@Scenario5
+Scenario: A membership order emails the membership owner
+Given an order containing a membership
+When the order is processed
+Then the owner is emailed and informed of the activation
+
+@Scenario6
+Scenario: A membership upgrade order emails the membership owner
+Given an order containing a membership upgrade
+When the order is processed
+Then the owner is emailed and informed of the upgrade
+
 #Scenarios
 #
 # Physical product, generate a packing slip for shipping

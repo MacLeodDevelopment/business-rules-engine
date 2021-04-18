@@ -22,7 +22,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
         [Given(@"an order containing a book")]
         public void GivenAnOrderContainingABook()
         {
-            var orders = OrderHelper.GetOrderInput(SharedResources.Orders.Order2_json);
+            var orders = OrderHelper.GetOrderInput(SharedResources.Orders.Book_json);
             _scenarioContext.Add(StepConstants.OrdersKey, orders);
         }
 
@@ -33,7 +33,7 @@ namespace BusinessRulesEngine.AcceptanceTests.Steps
             events.Count.Should().Be(2);
             
             var packingSlipDuplicatedEvent = events[1];
-            packingSlipDuplicatedEvent.Message.Should().Be("Order2: Packing slip DUPLICATED for Royalty Department.");
+            packingSlipDuplicatedEvent.Message.Should().Be("BOOK_ORDER: Packing slip DUPLICATED for Royalty Department.");
 
             var packingSlip = packingSlipDuplicatedEvent.Data as PackingSlip;
 

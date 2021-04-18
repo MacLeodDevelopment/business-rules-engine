@@ -62,61 +62,61 @@ namespace BusinessRulesEngine.SharedResources {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order1&quot;,  
-        ///  &quot;productId&quot;:&quot;CAKE001&quot;,
-        ///  &quot;productType&quot;: &quot;Physical&quot;,
-        ///  &quot;productSubType&quot;: &quot;Cake&quot;,
-        ///  &quot;productName&quot;: &quot;Battenberg&quot;  
-        ///}.
-        /// </summary>
-        public static string Order1_json {
-            get {
-                return ResourceManager.GetString("Order1_json", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order2&quot;,    
+        ///  &quot;id&quot;: &quot;BOOK_ORDER&quot;,    
         ///  &quot;productId&quot;:&quot;BOOK001&quot;,
         ///  &quot;productType&quot;: &quot;Physical&quot;,
         ///  &quot;productSubType&quot;: &quot;Book&quot;,
         ///  &quot;productName&quot;: &quot;The Day of The Triffids&quot;  
         ///}.
         /// </summary>
-        public static string Order2_json {
+        public static string Book_json {
             get {
-                return ResourceManager.GetString("Order2_json", resourceCulture);
+                return ResourceManager.GetString("Book_json", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order3&quot;,    
-        ///  &quot;productId&quot;: &quot;MEMBER001&quot;,
+        ///  &quot;id&quot;: &quot;MEMBERSHIP_ACTIVATION_ORDER&quot;,    
+        ///  &quot;productId&quot;: &quot;ACTIVATION_MEMBER_ID&quot;,
         ///  &quot;productType&quot;: &quot;Membership&quot;,
         ///  &quot;productSubType&quot;: &quot;Activate&quot;,
         ///  &quot;productName&quot;: &quot;Membership Activation&quot;  
         ///}.
         /// </summary>
-        public static string Order3_json {
+        public static string Membership_Activation_json {
             get {
-                return ResourceManager.GetString("Order3_json", resourceCulture);
+                return ResourceManager.GetString("Membership_Activation_json", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  &quot;id&quot;: &quot;Order4&quot;,    
-        ///  &quot;productId&quot;: &quot;MEMBER002&quot;,
+        ///  &quot;id&quot;: &quot;MEMBERSHIP_UPGRADE_ORDER&quot;,    
+        ///  &quot;productId&quot;: &quot;UPGRADE_MEMBER_ID&quot;,
         ///  &quot;productType&quot;: &quot;Membership&quot;,
         ///  &quot;productSubType&quot;: &quot;Upgrade&quot;,
         ///  &quot;productName&quot;: &quot;Membership Upgrade&quot;  
         ///}.
         /// </summary>
-        public static string Order4_json {
+        public static string Membership_Upgrade_json {
             get {
-                return ResourceManager.GetString("Order4_json", resourceCulture);
+                return ResourceManager.GetString("Membership_Upgrade_json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;id&quot;: &quot;PHYSICAL_PRODUCT_ORDER&quot;,  
+        ///  &quot;productId&quot;:&quot;CAKE001&quot;,
+        ///  &quot;productType&quot;: &quot;Physical&quot;,
+        ///  &quot;productSubType&quot;: &quot;Cake&quot;,
+        ///  &quot;productName&quot;: &quot;Battenberg&quot;  
+        ///}.
+        /// </summary>
+        public static string Physical_Product_json {
+            get {
+                return ResourceManager.GetString("Physical_Product_json", resourceCulture);
             }
         }
     }

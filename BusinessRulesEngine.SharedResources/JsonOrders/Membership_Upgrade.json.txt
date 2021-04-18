@@ -1,6 +1,6 @@
 ﻿{
-  "id": "Order4",    
-  "productId": "MEMBER002",
+  "id": "MEMBERSHIP_UPGRADE_ORDER",    
+  "productId": "UPGRADE_MEMBER_ID",
   "productType": "Membership",
   "productSubType": "Upgrade",
   "productName": "Membership Upgrade"  

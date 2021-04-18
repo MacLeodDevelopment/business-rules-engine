@@ -1,5 +1,5 @@
 ﻿{
-  "id": "Order1",  
+  "id": "PHYSICAL_PRODUCT_ORDER",  
   "productId":"CAKE001",
   "productType": "Physical",
   "productSubType": "Cake",

@@ -1,6 +1,6 @@
 ﻿{
-  "id": "Order3",    
-  "productId": "MEMBER001",
+  "id": "MEMBERSHIP_ACTIVATION_ORDER",    
+  "productId": "ACTIVATION_MEMBER_ID",
   "productType": "Membership",
   "productSubType": "Activate",
   "productName": "Membership Activation"  

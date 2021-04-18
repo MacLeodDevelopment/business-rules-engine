@@ -23,7 +23,7 @@ namespace BusinessRulesEngine.UI
         {
             var inputOrders = new List<InputOrder>
             {
-                JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Order1_json)
+                JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Physical_Product_json)
             }; //TODO AMACLEOD WE'LL NEED SOME SORT OF UI INPUT TO DECIDE WHICH SCENARIO TO RUN?
 
             ProcessOrders(inputOrders);
