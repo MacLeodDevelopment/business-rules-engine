@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Rules\MembershipEmail.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
+
+namespace BusinessRulesEngine.Domain.Rules
+{
+    public class MembershipEmail : IRule
+    {
+        private readonly IServiceBus _serviceBus;
+
+        public MembershipEmail(IServiceBus serviceBus)
+        {
+            _serviceBus = serviceBus;
+        }
+
+        public bool IsMatch(Order order)
+        {
+            if (order?.Product?.ProductType.ToLower() != &quot;membership&quot;)
+            {
+                return false;
+            }
+
+            return order.Product.ProductSubType.ToLowerInvariant() == &quot;activate&quot; || order.Product.ProductSubType.ToLowerInvariant() == &quot;upgrade&quot;;
+        }
+
+        public void Apply(Order order)
+        {
+            var emailMembershipOwner = new EmailMembershipOwner(order.Id, order.Product.Id, order.Product.ProductSubType);
+            _serviceBus.PublishEvent(emailMembershipOwner);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,55,1],[12,9,12,10,1],[13,13,13,38,1],[14,9,14,10,1],[17,9,17,10,1],[18,13,18,71,1],[19,13,19,14,1],[20,17,20,30,1],[23,13,23,146,1],[24,9,24,10,1],[27,9,27,10,1],[28,13,28,123,1],[29,13,29,60,1],[30,9,30,10,1]]);
+    </script>
+  </body>
+</html>

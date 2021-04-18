@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Rules\GenerateDuplicatePackingSlipForBook.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
+
+namespace BusinessRulesEngine.Domain.Rules
+{
+    public class GenerateDuplicatePackingSlipForBook : IRule
+    {
+        private readonly IServiceBus _serviceBus;
+
+        public GenerateDuplicatePackingSlipForBook(IServiceBus serviceBus)
+        {
+            _serviceBus = serviceBus;
+        }
+
+        public bool IsMatch(Order order)
+        {
+            return order?.Product?.ProductSubType.ToLowerInvariant() == &quot;book&quot;;
+        }
+
+        public void Apply(Order order)
+        {
+            var packingSlip = new PackingSlip(&quot;Royalty Department&quot;);
+            packingSlip.AddProduct($&quot;{order.Product.Name} ({order.Product.ProductSubType})&quot;);
+
+            _serviceBus.PublishEvent(new PackingSlipDuplicated(packingSlip, order.Id));
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,75,1],[12,9,12,10,1],[13,13,13,38,1],[14,9,14,10,1],[17,9,17,10,1],[18,13,18,80,1],[19,9,19,10,1],[22,9,22,10,1],[23,13,23,69,1],[24,13,24,94,1],[26,13,26,88,1],[27,9,27,10,1]]);
+    </script>
+  </body>
+</html>

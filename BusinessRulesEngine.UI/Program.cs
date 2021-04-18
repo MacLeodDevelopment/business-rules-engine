@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.UI.InputModels;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace BusinessRulesEngine.UI
 {
@@ -21,14 +19,14 @@ namespace BusinessRulesEngine.UI
 
         public static void Main()
         {
-            var inputOrders = new List<InputOrder>
+            var orders = UiEmulator.GetOrders();
+
+            ProcessOrders(orders);
+
+            if (UiEmulator.ProcessMoreOrders())
             {
-                JsonConvert.DeserializeObject<InputOrder>(SharedResources.Orders.Physical_Product_json)
-            }; //TODO AMACLEOD WE'LL NEED SOME SORT OF UI INPUT TO DECIDE WHICH SCENARIO TO RUN?
-
-            ProcessOrders(inputOrders);
-
-            Console.ReadLine();
+                Main();
+            }
         }
 
         /*

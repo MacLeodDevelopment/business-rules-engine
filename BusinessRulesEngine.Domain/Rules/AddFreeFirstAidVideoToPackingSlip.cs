@@ -16,8 +16,7 @@ namespace BusinessRulesEngine.Domain.Rules
 
         public bool IsMatch(Order order)
         {
-            //Order should have date/time on it, but I'm running short on time. This is sufficient for the purposes of this test. 
-            if (DateTime.Now.Year <= 1997) 
+            if (order.Timestamp.Year <= 1997) 
             {
                 return false;
             }

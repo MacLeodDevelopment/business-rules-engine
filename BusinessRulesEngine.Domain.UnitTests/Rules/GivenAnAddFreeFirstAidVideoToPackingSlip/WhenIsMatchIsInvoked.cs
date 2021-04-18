@@ -1,4 +1,5 @@
-﻿using BusinessRulesEngine.Domain.Interfaces;
+﻿using System;
+using BusinessRulesEngine.Domain.Interfaces;
 using BusinessRulesEngine.Domain.Models;
 using BusinessRulesEngine.Domain.Rules;
 using FluentAssertions;
@@ -13,6 +14,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAnAddFreeFirstAidVideo
         private AddFreeFirstAidVideoToPackingSlip _addFreeFirstAidVideoToPackingSlip;
         private Order _orderWithLearnToSkiVideo;
         private Order _orderWithAnythingElse;
+        private Mock<Order> _orderBefore1997;
 
         [SetUp]
         public void Setup()
@@ -23,6 +25,9 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAnAddFreeFirstAidVideo
             _orderWithAnythingElse = new Order(new OrderConfig { Id = "Other Order" });
             _orderWithAnythingElse.SetProduct(new Product(new ProductConfig { SubType = "Other Product" }));
 
+            _orderBefore1997 = new Mock<Order>();
+            _orderBefore1997.SetupGet(m => m.Timestamp).Returns(new DateTimeOffset(1997, 12, 31, 23, 59, 59, TimeSpan.Zero));
+            
             _addFreeFirstAidVideoToPackingSlip = new AddFreeFirstAidVideoToPackingSlip(new Mock<IServiceBus>().Object);
         }
 
@@ -38,6 +43,13 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules.GivenAnAddFreeFirstAidVideo
         public void AndTheSuppliedProductIsNotAVideoTitledLearnToSki_ThenFalseIsReturned()
         {
             var actual = _addFreeFirstAidVideoToPackingSlip.IsMatch(_orderWithAnythingElse);
+            actual.Should().BeFalse();
+        }
+
+        [Test]
+        public void AndTheOrderDateIsBefore1997_ThenFalseIsReturned()
+        {
+            var actual = _addFreeFirstAidVideoToPackingSlip.IsMatch(_orderBefore1997.Object);
             actual.Should().BeFalse();
         }
     }

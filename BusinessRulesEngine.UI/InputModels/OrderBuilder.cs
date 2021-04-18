@@ -6,10 +6,12 @@ namespace BusinessRulesEngine.UI.InputModels
     {
         public static Order BuildOrderFromInput(InputOrder inputOrder)
         {
+            UiEmulator.WriteInputOrder(inputOrder);
+
             var order = new Order(new OrderConfig
             {
                 Id = inputOrder.Id,
-                AgentId = inputOrder.agentId
+                AgentId = inputOrder.AgentId
             });
 
             var productConfig = new ProductConfig

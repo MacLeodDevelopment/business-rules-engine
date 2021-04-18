@@ -16,19 +16,21 @@ namespace BusinessRulesEngine.Services.UnitTests
         private IEnumerable<IRule> _expectedMatchingRules;
         private Mock<IRuleMatchService> _mockRuleMatchService;
         private Mock<IRuleEngine> _mockRuleEngine;
+        private Mock<ILogger> _mockLogger;
 
         [SetUp]
         public void Setup()
         {
             _validOrder = new Order(new OrderConfig { Id = "An Order" });
 
-            _expectedMatchingRules = new List<IRule>(); //TODO AMACLEOD COME BACK AND ADD SOME TEST RULES
+            _expectedMatchingRules = new List<IRule>{ new TestRule() }; 
             _mockRuleMatchService = new Mock<IRuleMatchService>();
             _mockRuleMatchService.Setup(m => m.GetMatchingRules(_validOrder)).Returns(_expectedMatchingRules);
             
             _mockRuleEngine = new Mock<IRuleEngine>();
+            _mockLogger = new Mock<ILogger>();
 
-            _orderProcessor = new OrderProcessor(_mockRuleMatchService.Object, _mockRuleEngine.Object);
+            _orderProcessor = new OrderProcessor(_mockRuleMatchService.Object, _mockRuleEngine.Object, _mockLogger.Object);
         }
 
         [Test]
@@ -55,6 +57,41 @@ namespace BusinessRulesEngine.Services.UnitTests
             _orderProcessor.ProcessOrder(_validOrder);
 
             _mockRuleEngine.Verify(m => m.ApplyRules(_expectedMatchingRules, _validOrder), Times.Once());
+        }
+
+        [Test]
+        public void AndTheRuleMatchServiceThrows_ThenTheExceptionIsLogged()
+        {
+            _mockRuleMatchService.Setup(m => m.GetMatchingRules(It.IsAny<Order>()))
+                .Throws(new Exception("Rule Match Failure!"));
+
+            _orderProcessor.ProcessOrder(_validOrder);
+
+            _mockLogger.Verify(m => m.Log("An Order failed with error: Rule Match Failure!", MessageType.Error), Times.Once());
+        }
+        
+        [Test]
+        public void AndTheRuleEngineThrows_ThenTheExceptionIsLogged()
+        {
+            _mockRuleEngine.Setup(m => m.ApplyRules(It.IsAny<IEnumerable<IRule>>(), It.IsAny<Order>()))
+                .Throws(new Exception("Rule Engine Failed!"));
+
+            _orderProcessor.ProcessOrder(_validOrder);
+
+            _mockLogger.Verify(m => m.Log("An Order failed with error: Rule Engine Failed!", MessageType.Error), Times.Once());
+        }
+
+        private class TestRule : IRule
+        {
+            public bool IsMatch(Order order)
+            {
+                return true;
+            }
+
+            public void Apply(Order order)
+            {
+                //Intentionally does nothing. 
+            }
         }
     }
 }

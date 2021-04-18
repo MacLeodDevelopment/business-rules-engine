@@ -11,21 +11,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
+		TestCoverageReport.html = TestCoverageReport.html
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Domain", "BusinessRulesEngine.Domain\BusinessRulesEngine.Domain.csproj", "{3F519307-4C09-481B-8EF8-A43E70018413}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Infrastructure", "BusinessRulesEngine.Infrastructure\BusinessRulesEngine.Infrastructure.csproj", "{58A2CE73-58D4-48FC-A538-AD0A78B2ECB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Domain.UnitTests", "BusinessRulesEngine.Domain.UnitTests\BusinessRulesEngine.Domain.UnitTests.csproj", "{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Domain.UnitTests", "BusinessRulesEngine.Domain.UnitTests\BusinessRulesEngine.Domain.UnitTests.csproj", "{94994D69-B369-4EFA-8AE0-B0C8D5B211FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Services", "BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj", "{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Services", "BusinessRulesEngine.Services\BusinessRulesEngine.Services.csproj", "{06B3BE93-B4D4-4EF5-A5EB-D097B8DF060E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.Services.UnitTests", "BusinessRulesEngine.Services.UnitTests\BusinessRulesEngine.Services.UnitTests.csproj", "{0602F8D4-E844-470A-8605-6E9D1B552E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.Services.UnitTests", "BusinessRulesEngine.Services.UnitTests\BusinessRulesEngine.Services.UnitTests.csproj", "{0602F8D4-E844-470A-8605-6E9D1B552E7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.IoC", "BusinessRulesEngine.IoC\BusinessRulesEngine.IoC.csproj", "{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.IoC", "BusinessRulesEngine.IoC\BusinessRulesEngine.IoC.csproj", "{E9887D9D-7D6D-40D2-BCCD-2A7FE9892BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRulesEngine.SharedResources", "BusinessRulesEngine.SharedResources\BusinessRulesEngine.SharedResources.csproj", "{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRulesEngine.SharedResources", "BusinessRulesEngine.SharedResources\BusinessRulesEngine.SharedResources.csproj", "{5EB47EE0-D7D8-4411-AE15-EB22BA66F67C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

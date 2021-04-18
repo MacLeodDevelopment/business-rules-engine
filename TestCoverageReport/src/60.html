@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Services\RuleMatchService.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Collections.Generic;
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
+
+namespace BusinessRulesEngine.Services
+{
+    public class RuleMatchService : IRuleMatchService
+    {
+        private readonly IEnumerable&lt;IRule&gt; _allRules;
+
+        public RuleMatchService(IRuleRepository ruleRepository)
+        {
+            _allRules = ruleRepository.AllRules();
+        }
+
+        public IEnumerable&lt;IRule&gt; GetMatchingRules(Order order)
+        {
+            var matchingRules = new List&lt;IRule&gt;();
+
+            foreach (var rule in _allRules)
+            {
+                if (rule.IsMatch(order))
+                {
+                    matchingRules.Add(rule);
+                }
+            }
+
+            return matchingRules;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,64,1],[12,9,12,10,1],[13,13,13,51,1],[14,9,14,10,1],[17,9,17,10,1],[18,13,18,51,1],[20,13,20,20,1],[20,22,20,30,1],[20,31,20,33,1],[20,34,20,43,1],[21,13,21,14,1],[22,17,22,41,1],[23,17,23,18,1],[24,21,24,45,1],[25,17,25,18,1],[26,13,26,14,1],[28,13,28,34,1],[29,9,29,10,1]]);
+    </script>
+  </body>
+</html>

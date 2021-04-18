@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Models\Events\EmailMembershipOwner.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using BusinessRulesEngine.Domain.Interfaces;
+
+namespace BusinessRulesEngine.Domain.Models.Events
+{
+    public class EmailMembershipOwner : IBusinessEvent
+    {
+        public string Message { get; }
+        public object Data { get; }
+
+        /// &lt;remarks&gt;
+        /// Multiple string arguments is a code-smell - but time is a factor.
+        /// With more time I would create a config object.
+        /// &lt;/remarks&gt;
+        public EmailMembershipOwner(string orderId, string membershipId, string topic)
+        {
+            Message = $&quot;{orderId}: Membership Owner EMAILED about {topic.ToUpperInvariant()}.&quot;;
+            Data = membershipId;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[7,33,7,37,1],[8,30,8,34,1],[14,9,14,87,1],[15,9,15,10,1],[16,13,16,96,1],[17,13,17,33,1],[18,9,18,10,1]]);
+    </script>
+  </body>
+</html>

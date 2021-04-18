@@ -7,6 +7,6 @@
         public string ProductName { get; set; }
         public string ProductType { get; set; }
         public string ProductSubType { get; set; }
-        public string agentId { get; set; }
+        public string AgentId { get; set; }
     }
 }

@@ -7,13 +7,13 @@ namespace BusinessRulesEngine.Infrastructure
     [ExcludeFromCodeCoverage(Justification = "because this implementation is an emulator for testing purposes.")]
     public class ServiceBusEmulator : IServiceBus
     {
-        private readonly ILogger _logger;
         private readonly List<IBusinessEvent> _events;
+        private readonly ExternalServiceEmulator _externalServiceEmulator;
 
         public ServiceBusEmulator(ILogger logger)
         {
-            _logger = logger;
             _events = new List<IBusinessEvent>();
+            _externalServiceEmulator = new ExternalServiceEmulator(logger);
         }
 
         public IEnumerable<IBusinessEvent> Events()
@@ -23,8 +23,9 @@ namespace BusinessRulesEngine.Infrastructure
 
         public void PublishEvent(IBusinessEvent businessEvent)
         {
-            _logger.Log(businessEvent.Message);
             _events.Add(businessEvent);
+
+            _externalServiceEmulator.HandleEvent(businessEvent);
         }
 
         public void ClearEvents()

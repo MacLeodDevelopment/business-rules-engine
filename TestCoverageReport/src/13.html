@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Rules\GenerateCommissionPayment.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
+
+namespace BusinessRulesEngine.Domain.Rules
+{
+    public class GenerateCommissionPayment : IRule
+    {
+        private readonly IServiceBus _serviceBus;
+
+        public GenerateCommissionPayment(IServiceBus serviceBus)
+        {
+            _serviceBus = serviceBus;
+        }
+
+        public bool IsMatch(Order order)
+        {
+            return order?.Product?.ProductType?.ToLowerInvariant() == &quot;physical&quot; 
+                   || order?.Product?.ProductSubType?.ToLowerInvariant() == &quot;book&quot;;
+        }
+
+        public void Apply(Order order)
+        {
+            _serviceBus.PublishEvent(new CommissionPaymentGenerated(order.Id, order.AgentId));
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,65,1],[12,9,12,10,1],[13,13,13,38,1],[14,9,14,10,1],[17,9,17,10,1],[18,13,19,84,1],[20,9,20,10,1],[23,9,23,10,1],[24,13,24,95,1],[25,9,25,10,1]]);
+    </script>
+  </body>
+</html>

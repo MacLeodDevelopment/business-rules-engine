@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Rules\GeneratePackingSlipForPhysicalProduct.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using BusinessRulesEngine.Domain.Interfaces;
+using BusinessRulesEngine.Domain.Models;
+using BusinessRulesEngine.Domain.Models.Events;
+
+namespace BusinessRulesEngine.Domain.Rules
+{
+    public class GeneratePackingSlipForPhysicalProduct : IRule
+    {
+        private readonly IServiceBus _serviceBus;
+
+        public GeneratePackingSlipForPhysicalProduct(IServiceBus serviceBus)
+        {
+            _serviceBus = serviceBus;
+        }
+
+        public bool IsMatch(Order order)
+        {
+            return order?.Product?.ProductType.ToLowerInvariant() == &quot;physical&quot;;
+        }
+
+        public void Apply(Order order)
+        {
+            var packingSlip = new PackingSlip(&quot;Shipping&quot;);
+            packingSlip.AddProduct($&quot;{order.Product.Name} ({order.Product.ProductSubType})&quot;);
+            
+            order.SetPackingSlip(packingSlip);
+
+            _serviceBus.PublishEvent(new PackingSlipCreated(packingSlip, order.Id));
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,77,1],[12,9,12,10,1],[13,13,13,38,1],[14,9,14,10,1],[17,9,17,10,1],[18,13,18,81,1],[19,9,19,10,1],[22,9,22,10,1],[23,13,23,59,1],[24,13,24,94,1],[26,13,26,47,1],[28,13,28,85,1],[29,9,29,10,1]]);
+    </script>
+  </body>
+</html>

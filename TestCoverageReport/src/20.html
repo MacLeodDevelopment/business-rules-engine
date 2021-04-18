@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\DATA\Development\business-rules-engine\BusinessRulesEngine.Domain\Models\Order.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+
+namespace BusinessRulesEngine.Domain.Models
+{
+    public class Order
+    {
+        public virtual string Id { get; }
+        public virtual Product Product { get; private set; }
+        public virtual PackingSlip PackingSlip { get; private set; }
+        public virtual string AgentId { get; }
+        public virtual DateTimeOffset Timestamp { get; }
+
+        // ReSharper disable once UnusedMember.Global
+        public Order() { }
+
+        public Order(OrderConfig orderConfig)
+        {
+            Id = orderConfig.Id;
+            AgentId = orderConfig.AgentId;
+            Timestamp = DateTimeOffset.Now;
+        }
+
+        public virtual void SetPackingSlip(PackingSlip packingSlip)
+        {
+            PackingSlip = packingSlip;
+        }
+
+        public virtual void SetProduct(Product product)
+        {
+            Product = product;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[7,36,7,40,1],[8,42,8,46,1],[8,47,8,59,1],[9,50,9,54,1],[9,55,9,67,1],[10,41,10,45,1],[11,51,11,55,1],[14,9,14,23,1],[14,24,14,25,1],[14,26,14,27,1],[16,9,16,46,1],[17,9,17,10,1],[18,13,18,33,1],[19,13,19,43,1],[20,13,20,44,1],[21,9,21,10,1],[24,9,24,10,1],[25,13,25,39,1],[26,9,26,10,1],[29,9,29,10,1],[30,13,30,31,1],[31,9,31,10,1]]);
+    </script>
+  </body>
+</html>

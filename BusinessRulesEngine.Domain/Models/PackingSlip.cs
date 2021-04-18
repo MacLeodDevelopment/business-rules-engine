@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BusinessRulesEngine.Domain.Models
 {
@@ -13,6 +14,7 @@ namespace BusinessRulesEngine.Domain.Models
             Products = new List<string>();
         }
 
+        [ExcludeFromCodeCoverage(Justification = "Empty constructor only exists for mocking purposes.")]
         public PackingSlip() { }
 
         public void AddProduct(string productName)
