@@ -12,6 +12,7 @@
         public Order(string id)
         {
             Id = id;
+            PackingSlip = new PackingSlip();
         }
 
         public virtual void SetPackingSlip(PackingSlip packingSlip)

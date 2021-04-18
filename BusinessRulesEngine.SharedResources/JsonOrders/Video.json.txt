@@ -1,0 +1,7 @@
+﻿{
+  "id": "VIDEO_ORDER",    
+  "productId":"VIDEO001",
+  "productType": "Physical",
+  "productSubType": "Video",
+  "productName": "Learning to Ski"  
+}

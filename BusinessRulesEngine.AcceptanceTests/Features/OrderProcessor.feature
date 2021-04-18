@@ -37,6 +37,15 @@ Given an order containing a membership upgrade
 When the order is processed
 Then the owner is emailed and informed of the upgrade
 
+@Scenario7
+Scenario: An order for the video Learning to Ski adds a free First Aid video to the packing slip
+Given an order containing a video
+And  the title of the video is Learning to Ski
+And  and the order was placed after 1997
+When the order is processed
+Then a free First Aid video is added to the packing slip
+
+
 #Scenarios
 #
 # Physical product, generate a packing slip for shipping

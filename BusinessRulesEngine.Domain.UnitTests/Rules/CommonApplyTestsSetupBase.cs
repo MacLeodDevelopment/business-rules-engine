@@ -28,6 +28,7 @@ namespace BusinessRulesEngine.Domain.UnitTests.Rules
             MockOrder = new Mock<Order>();
             MockOrder.Setup(m => m.SetPackingSlip(ExpectedPackingSlip));
             MockOrder.SetupGet(m => m.Product).Returns(ExpectedProduct);
+            MockOrder.SetupGet(m => m.PackingSlip).Returns(ExpectedPackingSlip);
 
             MockServiceBus = new Mock<IServiceBus>();
             MockServiceBus.Setup(m => m.PublishEvent(It.IsAny<IBusinessEvent>()));

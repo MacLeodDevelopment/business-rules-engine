@@ -130,4 +130,7 @@
   <data name="Physical_Product_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>jsonorders\physical_product.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Video_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>jsonorders\video.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
