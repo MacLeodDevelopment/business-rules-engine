@@ -19,7 +19,11 @@ Given an order containing a membership
 When the order is processed
 Then the membership is activated
 
-
+@Scenario4
+Scenario: A membership upgrade order upgrades the membership
+Given an order containing a membership upgrade
+When the order is processed
+Then the membership is upgraded
 
 #Scenarios
 #

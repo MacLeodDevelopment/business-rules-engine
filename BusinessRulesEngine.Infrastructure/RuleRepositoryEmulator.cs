@@ -23,7 +23,8 @@ namespace BusinessRulesEngine.Infrastructure
             {
                 new GeneratePackingSlipForPhysicalProduct(_serviceBus),
                 new GenerateDuplicatePackingSlipForBook(_serviceBus),
-                new ActivateMembership(_serviceBus)
+                new ActivateMembership(_serviceBus),
+                new UpgradeMembership(_serviceBus)
             };
         }
     }

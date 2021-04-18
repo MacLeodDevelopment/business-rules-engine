@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Rules\GivenAnActivateMembership\" />
+    <Folder Include="Rules\GivenAnUpgradeMembership\" />
   </ItemGroup>
 
 </Project>

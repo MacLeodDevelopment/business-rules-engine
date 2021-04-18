@@ -104,5 +104,20 @@ namespace BusinessRulesEngine.SharedResources {
                 return ResourceManager.GetString("Order3_json", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;id&quot;: &quot;Order4&quot;,    
+        ///  &quot;productId&quot;: &quot;MEMBER002&quot;,
+        ///  &quot;productType&quot;: &quot;Membership&quot;,
+        ///  &quot;productSubType&quot;: &quot;Upgrade&quot;,
+        ///  &quot;productName&quot;: &quot;Membership Upgrade&quot;  
+        ///}.
+        /// </summary>
+        public static string Order4_json {
+            get {
+                return ResourceManager.GetString("Order4_json", resourceCulture);
+            }
+        }
     }
 }
