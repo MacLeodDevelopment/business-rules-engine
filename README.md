@@ -27,6 +27,7 @@ You can then hit F5 to run the project.
 * I have tried to steer clear of anaemic domain models, though in some cases these were appropriate. 
   * The rules and events in a real application would likely have business logic in them. 
 * Limited validation has been created for this test due to time constraints. In a real world app I would implement more try/catch behaviour and exception handling. 
+* Please see the [Code Coverage Report](https://github.com/MacLeodDevelopment/business-rules-engine/blob/master/TestCoverageReport.html).
 
 ## Assumptions
 
